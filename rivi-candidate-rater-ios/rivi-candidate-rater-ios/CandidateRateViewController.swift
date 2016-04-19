@@ -11,9 +11,13 @@ import UIKit
 
 class CandidateRateViewController: UIViewController {
     @IBOutlet weak var radarChart: RadarChartView!
+    @IBOutlet weak var slider1: UISlider!
+    @IBOutlet weak var slider2: UISlider!
+    @IBOutlet weak var slider3: UISlider!
+    @IBOutlet weak var slider4: UISlider!
+    @IBOutlet weak var slider5: UISlider!
 
-    var name = ""
-    private var values = [0.0, 0.0, 0.0, 0.0, 0.0]
+    var profile: Profile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,13 @@ class CandidateRateViewController: UIViewController {
         radarChart.yAxis.axisMinValue = 0
         radarChart.yAxis.axisMaxValue = 10
         radarChart.yAxis.drawLabelsEnabled = false
+        
+        slider1.value = Float(profile.goodLooks)
+        slider2.value = Float(profile.wealth)
+        slider3.value = Float(profile.marriagePotential)
+        slider4.value = Float(profile.swag)
+        slider5.value = Float(profile.size)
+        
         setData()
     }
 
@@ -39,37 +50,40 @@ class CandidateRateViewController: UIViewController {
     }
     
     @IBAction func goodLooksValueChanged(sender: UISlider) {
-        values[0] = Double(Int(sender.value + 0.5))
+        profile.goodLooks = Double(Int(sender.value + 0.5))
         setData()
     }
 
     @IBAction func wealthValueChanged(sender: UISlider) {
-        values[1] = Double(Int(sender.value + 0.5))
+        profile.wealth = Double(Int(sender.value + 0.5))
         setData()
     }
     
     @IBAction func marriageValueChanged(sender: UISlider) {
-        values[2] = Double(Int(sender.value + 0.5))
+        profile.marriagePotential = Double(Int(sender.value + 0.5))
         setData()
     }
     
     @IBAction func swagValueChanged(sender: UISlider) {
-        values[3] = Double(Int(sender.value + 0.5))
+        profile.swag = Double(Int(sender.value + 0.5))
         setData()
     }
     
     @IBAction func sizeValueChanged(sender: UISlider) {
-        values[4] = Double(Int(sender.value + 0.5))
+        profile.size = Double(Int(sender.value + 0.5))
         setData()
 
     }
     
     private func setData() {
         var dataEntries = [ChartDataEntry]()
-        for i in 0 ..< values.count {
-            dataEntries.append(ChartDataEntry(value: values[i], xIndex: i))
-        }
-        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: name)
+        dataEntries.append(ChartDataEntry(value: profile.goodLooks, xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: profile.wealth, xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: profile.marriagePotential, xIndex: 2))
+        dataEntries.append(ChartDataEntry(value: profile.swag, xIndex: 3))
+        dataEntries.append(ChartDataEntry(value: profile.size, xIndex: 4))
+        
+        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: profile.name)
         radarDataSet.fillColor = UIColor.blueColor()
         radarDataSet.setColor(UIColor.blueColor())
         radarDataSet.drawFilledEnabled = true

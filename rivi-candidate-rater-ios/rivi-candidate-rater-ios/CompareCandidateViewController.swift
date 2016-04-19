@@ -36,6 +36,7 @@ class CompareCandidateViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        colorIndex = 0
         selectedCandidates = Candidates.sharedInstance.selectedCandidates
         setData()
     }
