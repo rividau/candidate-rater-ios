@@ -73,6 +73,24 @@
             </objects>
             <point key="canvasLocation" x="245" y="337"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="puY-Ko-YTO">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" id="DgP-b8-PH0" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="u60-Gv-Zfa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="EPQ-1i-PUo" kind="relationship" relationship="viewControllers" id="QgA-XL-BIf"/>
+                        <segue destination="RcZ-qW-cyW" kind="relationship" relationship="viewControllers" id="dwg-4p-Pdj"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8K-Jd-V60" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="967" y="337"/>
+        </scene>
         <!--Candidate Search-->
         <scene sceneID="sze-Kr-vfD">
             <objects>
@@ -147,12 +165,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HJD-Jq-tTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815" y="337"/>
+            <point key="canvasLocation" x="2467" y="-128"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Rate-->
         <scene sceneID="10d-7r-oxz">
             <objects>
-                <navigationController storyboardIdentifier="navigationController" id="EPQ-1i-PUo" sceneMemberID="viewController">
+                <navigationController id="EPQ-1i-PUo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Rate" image="list" selectedImage="list" id="7tC-ee-gDz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JtF-3p-pD5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -163,7 +182,169 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uX6-2G-b00" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="337"/>
+            <point key="canvasLocation" x="1691" y="-128"/>
+        </scene>
+        <!--Compare-->
+        <scene sceneID="1hv-tb-Ytd">
+            <objects>
+                <navigationController id="RcZ-qW-cyW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Compare" image="profile" selectedImage="profile" id="sDo-4l-PTs"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cb5-JR-v8h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="KwD-ci-luY" kind="relationship" relationship="rootViewController" id="XnM-Df-ccB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c03-OG-Msu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1691" y="676"/>
+        </scene>
+        <!--Compare Candidates-->
+        <scene sceneID="Yft-9c-cAU">
+            <objects>
+                <viewController id="KwD-ci-luY" customClass="CompareCandidateViewController" customModule="rivi_candidate_rater_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TTU-Vz-ysP"/>
+                        <viewControllerLayoutGuide type="bottom" id="o9h-oh-FSK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gx8-JK-ilt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3w-A1-31b" customClass="RadarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="O3w-A1-31b" firstAttribute="leading" secondItem="gx8-JK-ilt" secondAttribute="leadingMargin" id="XpN-w0-k8a"/>
+                            <constraint firstItem="o9h-oh-FSK" firstAttribute="top" secondItem="O3w-A1-31b" secondAttribute="bottom" id="ZJH-WS-S3T"/>
+                            <constraint firstItem="O3w-A1-31b" firstAttribute="top" secondItem="TTU-Vz-ysP" secondAttribute="bottom" id="cnd-fP-zWh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O3w-A1-31b" secondAttribute="trailing" id="fub-oy-9Zq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Compare Candidates" id="mpe-hN-3rP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="v9J-DY-t1o">
+                            <connections>
+                                <action selector="editClicked:" destination="KwD-ci-luY" id="fjy-XY-6MV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eIO-ow-ST0">
+                            <connections>
+                                <action selector="addClicked:" destination="KwD-ci-luY" id="oIb-DG-9fR"/>
+                                <segue destination="qFR-Zo-zST" kind="presentation" id="8cB-2r-zzS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="radarChart" destination="O3w-A1-31b" id="CPt-KB-WUu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hH9-0t-oM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2467" y="676"/>
+        </scene>
+        <!--Add Candidate View Controller-->
+        <scene sceneID="Qop-08-pDN">
+            <objects>
+                <viewController id="qFR-Zo-zST" customClass="AddCandidateViewController" customModule="rivi_candidate_rater_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OtZ-t8-Vyk"/>
+                        <viewControllerLayoutGuide type="bottom" id="fYL-nX-pnI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sey-5e-wcQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="reM-Ht-gXs">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="IdK-pU-LPH"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aVI-qi-31v">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="EGW-so-JFt" style="IBUITableViewCellStyleDefault" id="JU1-FE-JKd">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JU1-FE-JKd" id="pTI-iL-mpq">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EGW-so-JFt">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qFR-Zo-zST" id="1gV-0k-svm"/>
+                                    <outlet property="delegate" destination="qFR-Zo-zST" id="a8c-0U-zEG"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDk-6o-1cx">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OlV-Jd-dcT"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Add Candidate" id="Y7b-uA-4Yn">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oDr-Pp-Ry4">
+                                            <connections>
+                                                <action selector="cancelClicked:" destination="qFR-Zo-zST" id="deY-0Z-MfT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Add" id="tpp-Yj-Q3H">
+                                            <connections>
+                                                <action selector="addClicked:" destination="qFR-Zo-zST" id="zQr-lH-1iL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aVI-qi-31v" firstAttribute="leading" secondItem="sey-5e-wcQ" secondAttribute="leadingMargin" constant="-20" id="1yW-6s-k24"/>
+                            <constraint firstItem="hDk-6o-1cx" firstAttribute="leading" secondItem="sey-5e-wcQ" secondAttribute="leadingMargin" constant="-20" id="25e-Zw-Wvt"/>
+                            <constraint firstItem="aVI-qi-31v" firstAttribute="top" secondItem="reM-Ht-gXs" secondAttribute="bottom" id="Jiu-8x-QxU"/>
+                            <constraint firstItem="reM-Ht-gXs" firstAttribute="leading" secondItem="sey-5e-wcQ" secondAttribute="leadingMargin" constant="-20" id="QI5-KP-sbf"/>
+                            <constraint firstItem="fYL-nX-pnI" firstAttribute="top" secondItem="aVI-qi-31v" secondAttribute="bottom" id="Qzv-xb-K8F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aVI-qi-31v" secondAttribute="trailing" constant="-20" id="Z55-fn-SLW"/>
+                            <constraint firstItem="reM-Ht-gXs" firstAttribute="top" secondItem="hDk-6o-1cx" secondAttribute="bottom" id="akm-nw-QZP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="reM-Ht-gXs" secondAttribute="trailing" constant="-20" id="lQ2-Ek-Grj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hDk-6o-1cx" secondAttribute="trailing" constant="-20" id="qFr-yG-Xzh"/>
+                            <constraint firstItem="hDk-6o-1cx" firstAttribute="top" secondItem="OtZ-t8-Vyk" secondAttribute="bottom" id="x9B-ed-J1I"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="reM-Ht-gXs" id="yIR-2H-x1D"/>
+                        <outlet property="searchDisplayController" destination="59O-j5-R8q" id="lVB-du-b4N"/>
+                        <outlet property="tableView" destination="aVI-qi-31v" id="NIV-bR-4Vp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ns-8t-Q4f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="59O-j5-R8q">
+                    <connections>
+                        <outlet property="delegate" destination="qFR-Zo-zST" id="uN5-2k-ZQr"/>
+                        <outlet property="searchContentsController" destination="qFR-Zo-zST" id="HbD-uF-cT5"/>
+                        <outlet property="searchResultsDataSource" destination="qFR-Zo-zST" id="96l-yI-Y8M"/>
+                        <outlet property="searchResultsDelegate" destination="qFR-Zo-zST" id="ORE-Un-MX0"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2908" y="1446"/>
         </scene>
         <!--Rate Candidate-->
         <scene sceneID="XZd-wN-gmC">
@@ -293,7 +474,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bxn-7w-SGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2569" y="337"/>
+            <point key="canvasLocation" x="3221" y="-128"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="25" height="25"/>
+        <image name="profile" width="25" height="25"/>
+    </resources>
 </document>

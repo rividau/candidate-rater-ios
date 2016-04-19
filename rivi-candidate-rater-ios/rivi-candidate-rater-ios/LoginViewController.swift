@@ -23,7 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             Auth.logInRefreshToken(authToken, refreshToken: refreshToken) { [weak self] (error) -> Void in
                 if let strongSelf = self {
                     if error == nil {
-                        strongSelf.gotoCandidateSelection()
+                        strongSelf.gotoHome()
                     } else {
                         print("LogInViewController.viewDidLoad() - autologin failed, error=\(error)")
                     }
@@ -48,17 +48,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             UIAlertAction(title: "OK", style: .Default, handler: nil)
                         ])
                     } else {
-                        strongSelf.gotoCandidateSelection()
+                        strongSelf.gotoHome()
                     }
                 }
             }
         }
     }
     
-    private func gotoCandidateSelection() {
-        if let navController = storyboard?.instantiateViewControllerWithIdentifier("navigationController") {
+    private func gotoHome() {
+        if let tabBarController = storyboard?.instantiateViewControllerWithIdentifier("tabBarController") {
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.window?.rootViewController = navController
+            appDelegate.window?.rootViewController = tabBarController
         }
     }
     
