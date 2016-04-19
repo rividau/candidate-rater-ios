@@ -11,10 +11,13 @@ import UIKit
 class EditCandidatesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
+    private var selectedCandidates = [Profile]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.editing = true
+        selectedCandidates = Candidates.sharedInstance.selectedCandidates
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,13 +25,10 @@ class EditCandidatesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelClicked(sender: AnyObject) {
+    @IBAction func doneClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func doneClicked(sender: AnyObject) {
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -43,7 +43,7 @@ class EditCandidatesViewController: UIViewController {
 
 extension EditCandidatesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return selectedCandidates.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -52,8 +52,20 @@ extension EditCandidatesViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        cell.textLabel?.text = "candidate \(indexPath.row)"
+        if indexPath.row < selectedCandidates.count {
+            cell.textLabel?.text = selectedCandidates[indexPath.row].name
+        }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            if indexPath.row < selectedCandidates.count {
+                Candidates.sharedInstance.removeCandidate(selectedCandidates[indexPath.row])
+                selectedCandidates = Candidates.sharedInstance.selectedCandidates
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
+        }
     }
 }

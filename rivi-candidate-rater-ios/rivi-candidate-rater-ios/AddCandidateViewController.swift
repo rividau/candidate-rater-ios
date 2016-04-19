@@ -25,14 +25,13 @@ class AddCandidateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancelClicked(sender: AnyObject) {
+    @IBAction func doneClicked(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
     @IBAction func addClicked(sender: AnyObject) {
         if let selectedRow = tableView.indexPathForSelectedRow?.row where selectedRow < filteredCandidates.count {
             Candidates.sharedInstance.addCandidate(filteredCandidates[selectedRow])
-            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
