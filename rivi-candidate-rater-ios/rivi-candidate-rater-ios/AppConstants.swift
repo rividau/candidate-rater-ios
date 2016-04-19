@@ -6,7 +6,7 @@
 //  Copyright © 2016 Riviera Partners. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public let DEBUG_LOG_HTTP = true
 
@@ -65,3 +65,6 @@ let PROFILE_GENDER_MALE                 = "M"
 let PROFILE_GENDER_FEMALE               = "F"
 let PROFILE_TRUE                        = "true"
 let PROFILE_FALSE                       = "false"
+
+let ROW_HEIGHT = CGFloat(50)
+

@@ -1,5 +1,5 @@
 //
-//  AddCandidateViewController.swift
+//  EditCandidatesViewController.swift
 //  rivi-candidate-rater-ios
 //
 //  Created by Danny Au on 4/19/16.
@@ -8,14 +8,12 @@
 
 import UIKit
 
-class AddCandidateViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+class EditCandidatesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar.delegate = self
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,7 +25,7 @@ class AddCandidateViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func addClicked(sender: AnyObject) {
+    @IBAction func doneClicked(sender: AnyObject) {
     }
     
     /*
@@ -42,13 +40,7 @@ class AddCandidateViewController: UIViewController {
 
 }
 
-extension AddCandidateViewController: UISearchBarDelegate {
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        print("search change: \(searchText)")
-    }
-}
-
-extension AddCandidateViewController: UITableViewDelegate, UITableViewDataSource {
+extension EditCandidatesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }

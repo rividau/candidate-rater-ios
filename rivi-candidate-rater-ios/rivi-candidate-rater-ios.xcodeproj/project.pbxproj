@@ -26,6 +26,7 @@
 		35AA6A361CC5AD3F00464249 /* CandidateRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A351CC5AD3F00464249 /* CandidateRateViewController.swift */; };
 		35D7691E1CC6B46600AA62F2 /* CompareCandidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7691D1CC6B46600AA62F2 /* CompareCandidateViewController.swift */; };
 		35D769201CC6C27500AA62F2 /* AddCandidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7691F1CC6C27500AA62F2 /* AddCandidateViewController.swift */; };
+		35D769221CC6CCC400AA62F2 /* EditCandidatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D769211CC6CCC400AA62F2 /* EditCandidatesViewController.swift */; };
 		8089537948360E6945DDC71C /* Pods_rivi_candidate_rater_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		35AA6A351CC5AD3F00464249 /* CandidateRateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateRateViewController.swift; sourceTree = "<group>"; };
 		35D7691D1CC6B46600AA62F2 /* CompareCandidateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompareCandidateViewController.swift; sourceTree = "<group>"; };
 		35D7691F1CC6C27500AA62F2 /* AddCandidateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCandidateViewController.swift; sourceTree = "<group>"; };
+		35D769211CC6CCC400AA62F2 /* EditCandidatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCandidatesViewController.swift; sourceTree = "<group>"; };
 		36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rivi_candidate_rater_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9C4BA4733D23E9186CA95A /* Pods-rivi-candidate-rater-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		EE36F4B8C3E4A00F51313E9E /* Pods-rivi-candidate-rater-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				35AA6A351CC5AD3F00464249 /* CandidateRateViewController.swift */,
 				35AA6A331CC5A49600464249 /* CandidateSelectionViewController.swift */,
 				35D7691D1CC6B46600AA62F2 /* CompareCandidateViewController.swift */,
+				35D769211CC6CCC400AA62F2 /* EditCandidatesViewController.swift */,
 				35AA69F01CC5991500464249 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
@@ -409,6 +412,7 @@
 			files = (
 				35AA6A321CC5A1F500464249 /* Utility.swift in Sources */,
 				35D7691E1CC6B46600AA62F2 /* CompareCandidateViewController.swift in Sources */,
+				35D769221CC6CCC400AA62F2 /* EditCandidatesViewController.swift in Sources */,
 				35D769201CC6C27500AA62F2 /* AddCandidateViewController.swift in Sources */,
 				35AA6A2E1CC5A0B700464249 /* KeychainWrapper.swift in Sources */,
 				35AA6A211CC59BAC00464249 /* NetworkManager.swift in Sources */,

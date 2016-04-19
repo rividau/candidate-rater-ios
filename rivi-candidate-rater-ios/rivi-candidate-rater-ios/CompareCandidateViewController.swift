@@ -23,12 +23,6 @@ class CompareCandidateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func editClicked(sender: AnyObject) {
-    }
-    
-    @IBAction func addClicked(sender: AnyObject) {
-    }
-    
     /*
     // MARK: - Navigation
 

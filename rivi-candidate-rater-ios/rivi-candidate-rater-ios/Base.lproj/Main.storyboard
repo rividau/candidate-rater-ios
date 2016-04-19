@@ -229,12 +229,11 @@
                     <navigationItem key="navigationItem" title="Compare Candidates" id="mpe-hN-3rP">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="v9J-DY-t1o">
                             <connections>
-                                <action selector="editClicked:" destination="KwD-ci-luY" id="fjy-XY-6MV"/>
+                                <segue destination="5dX-PV-rCr" kind="presentation" id="v9t-UW-zwE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="eIO-ow-ST0">
                             <connections>
-                                <action selector="addClicked:" destination="KwD-ci-luY" id="oIb-DG-9fR"/>
                                 <segue destination="qFR-Zo-zST" kind="presentation" id="8cB-2r-zzS"/>
                             </connections>
                         </barButtonItem>
@@ -246,6 +245,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hH9-0t-oM3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2467" y="676"/>
+        </scene>
+        <!--Edit Candidates View Controller-->
+        <scene sceneID="nwq-Dt-CWs">
+            <objects>
+                <viewController id="5dX-PV-rCr" customClass="EditCandidatesViewController" customModule="rivi_candidate_rater_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g5D-Nd-VdT"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZUe-dZ-GRC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hSF-y8-B1E">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkz-oF-G5U">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Edit Candidates" id="HPX-iB-oxq">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="57w-xK-w5G">
+                                            <connections>
+                                                <action selector="cancelClicked:" destination="5dX-PV-rCr" id="QDA-TG-2aY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="jqx-lA-2hg">
+                                            <connections>
+                                                <action selector="doneClicked:" destination="5dX-PV-rCr" id="cf5-Fu-zvB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ESE-Da-Wap">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="bXd-60-aQv" style="IBUITableViewCellStyleDefault" id="kTx-sl-ZQo">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTx-sl-ZQo" id="maq-Lk-Ksu">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bXd-60-aQv">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5dX-PV-rCr" id="Ov1-E8-ytN"/>
+                                    <outlet property="delegate" destination="5dX-PV-rCr" id="zwh-zQ-qGT"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Jkz-oF-G5U" firstAttribute="leading" secondItem="hSF-y8-B1E" secondAttribute="leadingMargin" constant="-20" id="EqN-Kn-18X"/>
+                            <constraint firstItem="Jkz-oF-G5U" firstAttribute="top" secondItem="g5D-Nd-VdT" secondAttribute="bottom" id="JNt-TD-6nC"/>
+                            <constraint firstAttribute="trailing" secondItem="ESE-Da-Wap" secondAttribute="trailing" id="NXt-Mv-LJn"/>
+                            <constraint firstItem="ESE-Da-Wap" firstAttribute="top" secondItem="Jkz-oF-G5U" secondAttribute="bottom" id="Ssn-LE-LJE"/>
+                            <constraint firstItem="ESE-Da-Wap" firstAttribute="leading" secondItem="hSF-y8-B1E" secondAttribute="leading" id="Z1t-IG-WFa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jkz-oF-G5U" secondAttribute="trailing" constant="-20" id="kFh-T9-6rw"/>
+                            <constraint firstItem="ZUe-dZ-GRC" firstAttribute="top" secondItem="ESE-Da-Wap" secondAttribute="bottom" id="uth-qx-dfz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uc1-R8-qqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2108" y="1446"/>
         </scene>
         <!--Add Candidate View Controller-->
         <scene sceneID="Qop-08-pDN">
@@ -344,7 +416,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2908" y="1446"/>
+            <point key="canvasLocation" x="2830" y="1446"/>
         </scene>
         <!--Rate Candidate-->
         <scene sceneID="XZd-wN-gmC">
@@ -403,7 +475,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="9" translatesAutoresizingMaskIntoConstraints="NO" id="CdY-oZ-H4M">
                                 <rect key="frame" x="205" y="555" width="377" height="31"/>
                                 <connections>
-                                    <action selector="heightValueChanged:" destination="Fn5-hW-yK6" eventType="valueChanged" id="Ark-hW-BGB"/>
+                                    <action selector="sizeValueChanged:" destination="Fn5-hW-yK6" eventType="valueChanged" id="bqq-jM-9Oz"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shoe / Bra Size:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g3b-B4-U8g">
