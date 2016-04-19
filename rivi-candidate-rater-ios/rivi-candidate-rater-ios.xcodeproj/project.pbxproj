@@ -23,6 +23,7 @@
 		35AA6A2E1CC5A0B700464249 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A2D1CC5A0B700464249 /* KeychainWrapper.swift */; };
 		35AA6A321CC5A1F500464249 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A311CC5A1F500464249 /* Utility.swift */; };
 		35AA6A341CC5A49600464249 /* CandidateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A331CC5A49600464249 /* CandidateSelectionViewController.swift */; };
+		35AA6A361CC5AD3F00464249 /* CandidateRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A351CC5AD3F00464249 /* CandidateRateViewController.swift */; };
 		8089537948360E6945DDC71C /* Pods_rivi_candidate_rater_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		35AA6A2D1CC5A0B700464249 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		35AA6A311CC5A1F500464249 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		35AA6A331CC5A49600464249 /* CandidateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateSelectionViewController.swift; sourceTree = "<group>"; };
+		35AA6A351CC5AD3F00464249 /* CandidateRateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateRateViewController.swift; sourceTree = "<group>"; };
 		36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rivi_candidate_rater_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9C4BA4733D23E9186CA95A /* Pods-rivi-candidate-rater-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		EE36F4B8C3E4A00F51313E9E /* Pods-rivi-candidate-rater-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,8 +186,9 @@
 		35AA6A241CC59CCF00464249 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				35AA69F01CC5991500464249 /* LoginViewController.swift */,
+				35AA6A351CC5AD3F00464249 /* CandidateRateViewController.swift */,
 				35AA6A331CC5A49600464249 /* CandidateSelectionViewController.swift */,
+				35AA69F01CC5991500464249 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				35AA6A2E1CC5A0B700464249 /* KeychainWrapper.swift in Sources */,
 				35AA6A211CC59BAC00464249 /* NetworkManager.swift in Sources */,
 				35AA6A341CC5A49600464249 /* CandidateSelectionViewController.swift in Sources */,
+				35AA6A361CC5AD3F00464249 /* CandidateRateViewController.swift in Sources */,
 				35AA6A261CC59E1C00464249 /* AppConstants.swift in Sources */,
 				35AA69F11CC5991500464249 /* LoginViewController.swift in Sources */,
 				35AA6A291CC59EF300464249 /* Profile.swift in Sources */,

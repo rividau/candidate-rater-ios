@@ -8,20 +8,28 @@
 
 import UIKit
 
-class CandidateSelectionViewController: UIViewController {
+class CandidateSelectionViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var firstName: UITextField!
+    @IBOutlet weak var lastName: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        firstName.delegate = self
+        lastName.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
+    @IBAction func rateClicked(sender: AnyObject) {
+        if let candidateRateVC = storyboard?.instantiateViewControllerWithIdentifier("candidateRate") as? CandidateRateViewController, navController = navigationController {
+            navController.pushViewController(candidateRateVC, animated: true)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -32,4 +40,12 @@ class CandidateSelectionViewController: UIViewController {
     }
     */
 
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        rateClicked(self)
+        
+        return true
+    }
 }

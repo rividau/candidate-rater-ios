@@ -56,9 +56,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func gotoCandidateSelection() {
-        if let candidateSelectionVC = storyboard?.instantiateViewControllerWithIdentifier("candidateSelection") as? CandidateSelectionViewController {
+        if let navController = storyboard?.instantiateViewControllerWithIdentifier("navigationController") {
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            appDelegate.window?.rootViewController = candidateSelectionVC
+            appDelegate.window?.rootViewController = navController
         }
     }
     
