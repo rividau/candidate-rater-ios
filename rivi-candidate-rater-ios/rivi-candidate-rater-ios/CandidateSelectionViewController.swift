@@ -26,6 +26,7 @@ class CandidateSelectionViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func rateClicked(sender: AnyObject) {
         if let candidateRateVC = storyboard?.instantiateViewControllerWithIdentifier("candidateRate") as? CandidateRateViewController, navController = navigationController {
+            candidateRateVC.name = "\(firstName.text ?? "") \(lastName.text ?? "")"
             navController.pushViewController(candidateRateVC, animated: true)
         }
     }

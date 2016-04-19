@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4F18766B1DDCCC3CD3D2A0B2'
+               BlueprintIdentifier = 'A4373A2E36908EC2B88ED471'
                BlueprintName = 'Pods-rivi-candidate-rater-ios'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_rivi_candidate_rater_ios.framework'>

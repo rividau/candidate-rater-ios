@@ -6,15 +6,28 @@
 //  Copyright © 2016 Riviera Partners. All rights reserved.
 //
 
-//import Charts
+import Charts
 import UIKit
 
 class CandidateRateViewController: UIViewController {
+    @IBOutlet weak var radarChart: RadarChartView!
 
+    private let PARAMETERS = ["Good Looks", "Wealth O'Meter", "Marriage Potential", "Swag Level", "Height"]
+
+    var name = ""
+    private var values = [0.0, 0.0, 0.0, 0.0, 0.0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .Plain, target: self, action: #selector(CandidateRateViewController.saveClicked))
+        
+        radarChart.descriptionText = ""
+        radarChart.rotationEnabled = false
+        radarChart.yAxis.axisMinValue = 0
+        radarChart.yAxis.axisMaxValue = 10
+        radarChart.yAxis.drawLabelsEnabled = false
+        setData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,20 +35,51 @@ class CandidateRateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func saveClicked() {
+        print("SAVE CANDIDATE RATING")
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     @IBAction func goodLooksValueChanged(sender: UISlider) {
-        print("good looks value changed: \(sender.value)")
+        values[0] = Double(Int(sender.value + 0.5))
+        setData()
     }
 
     @IBAction func wealthValueChanged(sender: UISlider) {
-        print("wealth value changed: \(sender.value)")
+        values[1] = Double(Int(sender.value + 0.5))
+        setData()
     }
     
     @IBAction func marriageValueChanged(sender: UISlider) {
-        print("marriage potential value changed: \(sender.value)")
+        values[2] = Double(Int(sender.value + 0.5))
+        setData()
     }
     
     @IBAction func swagValueChanged(sender: UISlider) {
-        print("swag level value changed: \(sender.value)")
+        values[3] = Double(Int(sender.value + 0.5))
+        setData()
+    }
+    
+    @IBAction func heightValueChanged(sender: UISlider) {
+        values[4] = Double(Int(sender.value + 0.5))
+        setData()
+
+    }
+    
+    private func setData() {
+        var dataEntries = [ChartDataEntry]()
+        for i in 0 ..< values.count {
+            dataEntries.append(ChartDataEntry(value: values[i], xIndex: i))
+        }
+        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: name)
+        radarDataSet.fillColor = UIColor.blueColor()
+        radarDataSet.setColor(UIColor.blueColor())
+        radarDataSet.drawFilledEnabled = true
+        let radarData = RadarChartData(xVals: PARAMETERS, dataSets: [radarDataSet])
+        if let font = UIFont(name: "HelveticaNeue-Light", size: 8) {
+            radarData.setValueFont(font)
+        }
+        radarChart.data = radarData
     }
     
     /*

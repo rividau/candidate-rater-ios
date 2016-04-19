@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Charts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-rivi-candidate-rater-ios.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7151ED156C18378B3DC2BF7F6B919F6D</key>
+		<key>3BF63395565E203BAD540926AE9752CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55C55F9DF89EDA702F229FBA9DC76E3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87DDD296D4F64F4B85244286D84788F9</key>
+		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

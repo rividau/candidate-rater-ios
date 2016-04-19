@@ -86,10 +86,12 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-rivi-candidate-rater-ios/Alamofire.framework"
   install_framework "Pods-rivi-candidate-rater-ios/AlamofireImage.framework"
+  install_framework "Pods-rivi-candidate-rater-ios/Charts.framework"
   install_framework "Pods-rivi-candidate-rater-ios/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-rivi-candidate-rater-ios/Alamofire.framework"
   install_framework "Pods-rivi-candidate-rater-ios/AlamofireImage.framework"
+  install_framework "Pods-rivi-candidate-rater-ios/Charts.framework"
   install_framework "Pods-rivi-candidate-rater-ios/SwiftyJSON.framework"
 fi
