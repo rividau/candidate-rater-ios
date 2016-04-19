@@ -1,0 +1,6 @@
+framework module Pods_rivi_candidate_rater_ios {
+  umbrella header "Pods-rivi-candidate-rater-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

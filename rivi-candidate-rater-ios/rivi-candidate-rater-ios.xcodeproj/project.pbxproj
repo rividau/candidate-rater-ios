@@ -1,0 +1,663 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		35AA69EF1CC5991500464249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA69EE1CC5991500464249 /* AppDelegate.swift */; };
+		35AA69F11CC5991500464249 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA69F01CC5991500464249 /* LoginViewController.swift */; };
+		35AA69F41CC5991500464249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35AA69F21CC5991500464249 /* Main.storyboard */; };
+		35AA69F61CC5991500464249 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35AA69F51CC5991500464249 /* Assets.xcassets */; };
+		35AA69F91CC5991500464249 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35AA69F71CC5991500464249 /* LaunchScreen.storyboard */; };
+		35AA6A041CC5991500464249 /* rivi_candidate_rater_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A031CC5991500464249 /* rivi_candidate_rater_iosTests.swift */; };
+		35AA6A0F1CC5991500464249 /* rivi_candidate_rater_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A0E1CC5991500464249 /* rivi_candidate_rater_iosUITests.swift */; };
+		35AA6A201CC59BAC00464249 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A1D1CC59BAC00464249 /* Auth.swift */; };
+		35AA6A211CC59BAC00464249 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A1E1CC59BAC00464249 /* NetworkManager.swift */; };
+		35AA6A221CC59BAC00464249 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A1F1CC59BAC00464249 /* Router.swift */; };
+		35AA6A261CC59E1C00464249 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A251CC59E1C00464249 /* AppConstants.swift */; };
+		35AA6A291CC59EF300464249 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A281CC59EF300464249 /* Profile.swift */; };
+		35AA6A2B1CC59F4900464249 /* RestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A2A1CC59F4900464249 /* RestExtensions.swift */; };
+		35AA6A2E1CC5A0B700464249 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A2D1CC5A0B700464249 /* KeychainWrapper.swift */; };
+		35AA6A321CC5A1F500464249 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A311CC5A1F500464249 /* Utility.swift */; };
+		35AA6A341CC5A49600464249 /* CandidateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA6A331CC5A49600464249 /* CandidateSelectionViewController.swift */; };
+		8089537948360E6945DDC71C /* Pods_rivi_candidate_rater_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		35AA6A001CC5991500464249 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35AA69E31CC5991500464249 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35AA69EA1CC5991500464249;
+			remoteInfo = "rivi-candidate-rater-ios";
+		};
+		35AA6A0B1CC5991500464249 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 35AA69E31CC5991500464249 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 35AA69EA1CC5991500464249;
+			remoteInfo = "rivi-candidate-rater-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		35AA69EB1CC5991500464249 /* rivi-candidate-rater-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rivi-candidate-rater-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35AA69EE1CC5991500464249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		35AA69F01CC5991500464249 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		35AA69F31CC5991500464249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		35AA69F51CC5991500464249 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		35AA69F81CC5991500464249 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		35AA69FA1CC5991500464249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35AA69FF1CC5991500464249 /* rivi-candidate-rater-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rivi-candidate-rater-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35AA6A031CC5991500464249 /* rivi_candidate_rater_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rivi_candidate_rater_iosTests.swift; sourceTree = "<group>"; };
+		35AA6A051CC5991500464249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35AA6A0A1CC5991500464249 /* rivi-candidate-rater-iosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rivi-candidate-rater-iosUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		35AA6A0E1CC5991500464249 /* rivi_candidate_rater_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rivi_candidate_rater_iosUITests.swift; sourceTree = "<group>"; };
+		35AA6A101CC5991500464249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35AA6A1D1CC59BAC00464249 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		35AA6A1E1CC59BAC00464249 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		35AA6A1F1CC59BAC00464249 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		35AA6A251CC59E1C00464249 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		35AA6A281CC59EF300464249 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		35AA6A2A1CC59F4900464249 /* RestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestExtensions.swift; sourceTree = "<group>"; };
+		35AA6A2D1CC5A0B700464249 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		35AA6A311CC5A1F500464249 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		35AA6A331CC5A49600464249 /* CandidateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateSelectionViewController.swift; sourceTree = "<group>"; };
+		36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rivi_candidate_rater_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD9C4BA4733D23E9186CA95A /* Pods-rivi-candidate-rater-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		EE36F4B8C3E4A00F51313E9E /* Pods-rivi-candidate-rater-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		35AA69E81CC5991500464249 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8089537948360E6945DDC71C /* Pods_rivi_candidate_rater_ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35AA69FC1CC5991500464249 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35AA6A071CC5991500464249 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1468A03A29C29BBBB2D2B3C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD9C4BA4733D23E9186CA95A /* Pods-rivi-candidate-rater-ios.debug.xcconfig */,
+				EE36F4B8C3E4A00F51313E9E /* Pods-rivi-candidate-rater-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		35AA69E21CC5991500464249 = {
+			isa = PBXGroup;
+			children = (
+				35AA69ED1CC5991500464249 /* rivi-candidate-rater-ios */,
+				35AA6A021CC5991500464249 /* rivi-candidate-rater-iosTests */,
+				35AA6A0D1CC5991500464249 /* rivi-candidate-rater-iosUITests */,
+				35AA69EC1CC5991500464249 /* Products */,
+				1468A03A29C29BBBB2D2B3C5 /* Pods */,
+				49AB73E76BEEB2F67CC4E03F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		35AA69EC1CC5991500464249 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				35AA69EB1CC5991500464249 /* rivi-candidate-rater-ios.app */,
+				35AA69FF1CC5991500464249 /* rivi-candidate-rater-iosTests.xctest */,
+				35AA6A0A1CC5991500464249 /* rivi-candidate-rater-iosUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		35AA69ED1CC5991500464249 /* rivi-candidate-rater-ios */ = {
+			isa = PBXGroup;
+			children = (
+				35AA69EE1CC5991500464249 /* AppDelegate.swift */,
+				35AA69F51CC5991500464249 /* Assets.xcassets */,
+				35AA69FA1CC5991500464249 /* Info.plist */,
+				35AA6A271CC59ED800464249 /* Models */,
+				35AA6A1C1CC59B8500464249 /* Rest */,
+				35AA6A231CC59CBE00464249 /* Storyboards */,
+				35AA6A2C1CC5A0AA00464249 /* Utilities */,
+				35AA6A241CC59CCF00464249 /* ViewControllers */,
+			);
+			path = "rivi-candidate-rater-ios";
+			sourceTree = "<group>";
+		};
+		35AA6A021CC5991500464249 /* rivi-candidate-rater-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				35AA6A031CC5991500464249 /* rivi_candidate_rater_iosTests.swift */,
+				35AA6A051CC5991500464249 /* Info.plist */,
+			);
+			path = "rivi-candidate-rater-iosTests";
+			sourceTree = "<group>";
+		};
+		35AA6A0D1CC5991500464249 /* rivi-candidate-rater-iosUITests */ = {
+			isa = PBXGroup;
+			children = (
+				35AA6A0E1CC5991500464249 /* rivi_candidate_rater_iosUITests.swift */,
+				35AA6A101CC5991500464249 /* Info.plist */,
+			);
+			path = "rivi-candidate-rater-iosUITests";
+			sourceTree = "<group>";
+		};
+		35AA6A1C1CC59B8500464249 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				35AA6A2A1CC59F4900464249 /* RestExtensions.swift */,
+				35AA6A1D1CC59BAC00464249 /* Auth.swift */,
+				35AA6A1E1CC59BAC00464249 /* NetworkManager.swift */,
+				35AA6A1F1CC59BAC00464249 /* Router.swift */,
+			);
+			name = Rest;
+			sourceTree = "<group>";
+		};
+		35AA6A231CC59CBE00464249 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				35AA69F71CC5991500464249 /* LaunchScreen.storyboard */,
+				35AA69F21CC5991500464249 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		35AA6A241CC59CCF00464249 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				35AA69F01CC5991500464249 /* LoginViewController.swift */,
+				35AA6A331CC5A49600464249 /* CandidateSelectionViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		35AA6A271CC59ED800464249 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				35AA6A281CC59EF300464249 /* Profile.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		35AA6A2C1CC5A0AA00464249 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				35AA6A251CC59E1C00464249 /* AppConstants.swift */,
+				35AA6A2D1CC5A0B700464249 /* KeychainWrapper.swift */,
+				35AA6A311CC5A1F500464249 /* Utility.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		49AB73E76BEEB2F67CC4E03F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		35AA69EA1CC5991500464249 /* rivi-candidate-rater-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35AA6A131CC5991500464249 /* Build configuration list for PBXNativeTarget "rivi-candidate-rater-ios" */;
+			buildPhases = (
+				A6BD3E9DECBACC2AB77AE69E /* Check Pods Manifest.lock */,
+				35AA69E71CC5991500464249 /* Sources */,
+				35AA69E81CC5991500464249 /* Frameworks */,
+				35AA69E91CC5991500464249 /* Resources */,
+				0C9AB7E0B1C4D69EC6B0F08F /* Embed Pods Frameworks */,
+				DCEF1A1A794A8ECAFC442EE7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "rivi-candidate-rater-ios";
+			productName = "rivi-candidate-rater-ios";
+			productReference = 35AA69EB1CC5991500464249 /* rivi-candidate-rater-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		35AA69FE1CC5991500464249 /* rivi-candidate-rater-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35AA6A161CC5991500464249 /* Build configuration list for PBXNativeTarget "rivi-candidate-rater-iosTests" */;
+			buildPhases = (
+				35AA69FB1CC5991500464249 /* Sources */,
+				35AA69FC1CC5991500464249 /* Frameworks */,
+				35AA69FD1CC5991500464249 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35AA6A011CC5991500464249 /* PBXTargetDependency */,
+			);
+			name = "rivi-candidate-rater-iosTests";
+			productName = "rivi-candidate-rater-iosTests";
+			productReference = 35AA69FF1CC5991500464249 /* rivi-candidate-rater-iosTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		35AA6A091CC5991500464249 /* rivi-candidate-rater-iosUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 35AA6A191CC5991500464249 /* Build configuration list for PBXNativeTarget "rivi-candidate-rater-iosUITests" */;
+			buildPhases = (
+				35AA6A061CC5991500464249 /* Sources */,
+				35AA6A071CC5991500464249 /* Frameworks */,
+				35AA6A081CC5991500464249 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				35AA6A0C1CC5991500464249 /* PBXTargetDependency */,
+			);
+			name = "rivi-candidate-rater-iosUITests";
+			productName = "rivi-candidate-rater-iosUITests";
+			productReference = 35AA6A0A1CC5991500464249 /* rivi-candidate-rater-iosUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		35AA69E31CC5991500464249 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Riviera Partners";
+				TargetAttributes = {
+					35AA69EA1CC5991500464249 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					35AA69FE1CC5991500464249 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 35AA69EA1CC5991500464249;
+					};
+					35AA6A091CC5991500464249 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 35AA69EA1CC5991500464249;
+					};
+				};
+			};
+			buildConfigurationList = 35AA69E61CC5991500464249 /* Build configuration list for PBXProject "rivi-candidate-rater-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 35AA69E21CC5991500464249;
+			productRefGroup = 35AA69EC1CC5991500464249 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				35AA69EA1CC5991500464249 /* rivi-candidate-rater-ios */,
+				35AA69FE1CC5991500464249 /* rivi-candidate-rater-iosTests */,
+				35AA6A091CC5991500464249 /* rivi-candidate-rater-iosUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		35AA69E91CC5991500464249 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35AA69F91CC5991500464249 /* LaunchScreen.storyboard in Resources */,
+				35AA69F61CC5991500464249 /* Assets.xcassets in Resources */,
+				35AA69F41CC5991500464249 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35AA69FD1CC5991500464249 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35AA6A081CC5991500464249 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C9AB7E0B1C4D69EC6B0F08F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6BD3E9DECBACC2AB77AE69E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DCEF1A1A794A8ECAFC442EE7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		35AA69E71CC5991500464249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35AA6A321CC5A1F500464249 /* Utility.swift in Sources */,
+				35AA6A2E1CC5A0B700464249 /* KeychainWrapper.swift in Sources */,
+				35AA6A211CC59BAC00464249 /* NetworkManager.swift in Sources */,
+				35AA6A341CC5A49600464249 /* CandidateSelectionViewController.swift in Sources */,
+				35AA6A261CC59E1C00464249 /* AppConstants.swift in Sources */,
+				35AA69F11CC5991500464249 /* LoginViewController.swift in Sources */,
+				35AA6A291CC59EF300464249 /* Profile.swift in Sources */,
+				35AA6A221CC59BAC00464249 /* Router.swift in Sources */,
+				35AA6A2B1CC59F4900464249 /* RestExtensions.swift in Sources */,
+				35AA69EF1CC5991500464249 /* AppDelegate.swift in Sources */,
+				35AA6A201CC59BAC00464249 /* Auth.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35AA69FB1CC5991500464249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35AA6A041CC5991500464249 /* rivi_candidate_rater_iosTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35AA6A061CC5991500464249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35AA6A0F1CC5991500464249 /* rivi_candidate_rater_iosUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		35AA6A011CC5991500464249 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35AA69EA1CC5991500464249 /* rivi-candidate-rater-ios */;
+			targetProxy = 35AA6A001CC5991500464249 /* PBXContainerItemProxy */;
+		};
+		35AA6A0C1CC5991500464249 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 35AA69EA1CC5991500464249 /* rivi-candidate-rater-ios */;
+			targetProxy = 35AA6A0B1CC5991500464249 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		35AA69F21CC5991500464249 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35AA69F31CC5991500464249 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		35AA69F71CC5991500464249 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				35AA69F81CC5991500464249 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		35AA6A111CC5991500464249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		35AA6A121CC5991500464249 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		35AA6A141CC5991500464249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD9C4BA4733D23E9186CA95A /* Pods-rivi-candidate-rater-ios.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "rivi-candidate-rater-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivierapartners.RiviCandidateRater.rivi-candidate-rater-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		35AA6A151CC5991500464249 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE36F4B8C3E4A00F51313E9E /* Pods-rivi-candidate-rater-ios.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "rivi-candidate-rater-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivierapartners.RiviCandidateRater.rivi-candidate-rater-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		35AA6A171CC5991500464249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "rivi-candidate-rater-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivierapartners.RiviCandidateRater.rivi-candidate-rater-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rivi-candidate-rater-ios.app/rivi-candidate-rater-ios";
+			};
+			name = Debug;
+		};
+		35AA6A181CC5991500464249 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "rivi-candidate-rater-iosTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivierapartners.RiviCandidateRater.rivi-candidate-rater-iosTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/rivi-candidate-rater-ios.app/rivi-candidate-rater-ios";
+			};
+			name = Release;
+		};
+		35AA6A1A1CC5991500464249 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "rivi-candidate-rater-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivierapartners.RiviCandidateRater.rivi-candidate-rater-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "rivi-candidate-rater-ios";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		35AA6A1B1CC5991500464249 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "rivi-candidate-rater-iosUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rivierapartners.RiviCandidateRater.rivi-candidate-rater-iosUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "rivi-candidate-rater-ios";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		35AA69E61CC5991500464249 /* Build configuration list for PBXProject "rivi-candidate-rater-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35AA6A111CC5991500464249 /* Debug */,
+				35AA6A121CC5991500464249 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35AA6A131CC5991500464249 /* Build configuration list for PBXNativeTarget "rivi-candidate-rater-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35AA6A141CC5991500464249 /* Debug */,
+				35AA6A151CC5991500464249 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35AA6A161CC5991500464249 /* Build configuration list for PBXNativeTarget "rivi-candidate-rater-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35AA6A171CC5991500464249 /* Debug */,
+				35AA6A181CC5991500464249 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		35AA6A191CC5991500464249 /* Build configuration list for PBXNativeTarget "rivi-candidate-rater-iosUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				35AA6A1A1CC5991500464249 /* Debug */,
+				35AA6A1B1CC5991500464249 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 35AA69E31CC5991500464249 /* Project object */;
+}
