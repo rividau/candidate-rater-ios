@@ -12,8 +12,6 @@ import UIKit
 class CandidateRateViewController: UIViewController {
     @IBOutlet weak var radarChart: RadarChartView!
 
-    private let PARAMETERS = ["Good Looks", "Wealth O'Meter", "Marriage Potential", "Swag Level", "Shoe/Bra Size"]
-
     var name = ""
     private var values = [0.0, 0.0, 0.0, 0.0, 0.0]
     

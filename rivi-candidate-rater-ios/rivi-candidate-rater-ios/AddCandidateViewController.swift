@@ -12,6 +12,8 @@ class AddCandidateViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
+    var filteredCandidates = [Profile]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +30,10 @@ class AddCandidateViewController: UIViewController {
     }
 
     @IBAction func addClicked(sender: AnyObject) {
+        if let selectedRow = tableView.indexPathForSelectedRow?.row where selectedRow < filteredCandidates.count {
+            Candidates.sharedInstance.addCandidate(filteredCandidates[selectedRow])
+            dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     /*
@@ -44,13 +50,17 @@ class AddCandidateViewController: UIViewController {
 
 extension AddCandidateViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        print("search change: \(searchText)")
+        let allCandidates = Candidates.sharedInstance.allCandidates
+        filteredCandidates = allCandidates.filter({
+            $0.name.lowercaseString.containsString(searchText.lowercaseString)
+        })
+        tableView.reloadData()
     }
 }
 
 extension AddCandidateViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return filteredCandidates.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -59,7 +69,9 @@ extension AddCandidateViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        cell.textLabel?.text = "candidate \(indexPath.row)"
+        if indexPath.row < filteredCandidates.count {
+            cell.textLabel?.text = filteredCandidates[indexPath.row].name
+        }
         
         return cell
     }

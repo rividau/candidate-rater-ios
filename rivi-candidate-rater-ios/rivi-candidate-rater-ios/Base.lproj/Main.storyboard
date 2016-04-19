@@ -314,6 +314,9 @@
                             <constraint firstItem="ZUe-dZ-GRC" firstAttribute="top" secondItem="ESE-Da-Wap" secondAttribute="bottom" id="uth-qx-dfz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ESE-Da-Wap" id="GEL-0b-dOC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uc1-R8-qqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

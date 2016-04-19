@@ -12,15 +12,69 @@ import UIKit
 class CompareCandidateViewController: UIViewController {
     @IBOutlet weak var radarChart: RadarChartView!
 
+    private let SET_COLORS = [
+        UIColor.blueColor(),
+        UIColor.yellowColor(),
+        UIColor.redColor(),
+        UIColor.greenColor(),
+        UIColor.orangeColor()
+    ]
+    
+    private var colorIndex = 0
+    private var selectedCandidates = [Profile]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        radarChart.descriptionText = ""
+        radarChart.rotationEnabled = false
+        radarChart.yAxis.axisMinValue = 0
+        radarChart.yAxis.axisMaxValue = 10
+        radarChart.yAxis.drawLabelsEnabled = false
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        selectedCandidates = Candidates.sharedInstance.selectedCandidates
+        setData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func setData() {
+        var dataSets = [RadarChartDataSet]()
+        for profile in selectedCandidates {
+            dataSets.append(profileToRadarDataSet(profile))
+        }
+        let radarData = RadarChartData(xVals: PARAMETERS, dataSets: dataSets)
+        if let font = UIFont(name: "HelveticaNeue-Light", size: 8) {
+            radarData.setValueFont(font)
+        }
+        radarChart.data = radarData
+    }
+
+    
+    private func profileToRadarDataSet(profile: Profile) -> RadarChartDataSet {
+        let values = [profile.goodLooks, profile.wealth, profile.marriagePotential, profile.swag, profile.size]
+        var dataEntries = [ChartDataEntry]()
+        for i in 0 ..< values.count {
+            dataEntries.append(ChartDataEntry(value: values[i], xIndex: i))
+        }
+        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: profile.name)
+        radarDataSet.fillColor = SET_COLORS[colorIndex]
+        radarDataSet.setColor(SET_COLORS[colorIndex])
+        radarDataSet.drawFilledEnabled = true
+        
+        colorIndex += 1
+        if colorIndex == SET_COLORS.count {
+            colorIndex = 0
+        }
+        
+        return radarDataSet
     }
     
     /*

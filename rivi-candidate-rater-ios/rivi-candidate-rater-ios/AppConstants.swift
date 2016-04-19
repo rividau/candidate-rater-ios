@@ -67,4 +67,4 @@ let PROFILE_TRUE                        = "true"
 let PROFILE_FALSE                       = "false"
 
 let ROW_HEIGHT = CGFloat(50)
-
+let PARAMETERS = ["Good Looks", "Wealth O'Meter", "Marriage Potential", "Swag Level", "Shoe/Bra Size"]

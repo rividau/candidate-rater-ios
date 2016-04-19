@@ -42,6 +42,12 @@ class Profile {
     var currentCompany = ""
     var currentJobDescription = ""
 
+    var goodLooks: Double = 0
+    var wealth: Double = 0
+    var marriagePotential: Double = 0
+    var swag: Double = 0
+    var size: Double = 0
+    
     init(json: JSON? = nil) {
         guard let json = json else {
             return

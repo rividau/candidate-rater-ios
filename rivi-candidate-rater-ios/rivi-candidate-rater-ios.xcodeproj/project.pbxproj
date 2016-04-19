@@ -27,6 +27,7 @@
 		35D7691E1CC6B46600AA62F2 /* CompareCandidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7691D1CC6B46600AA62F2 /* CompareCandidateViewController.swift */; };
 		35D769201CC6C27500AA62F2 /* AddCandidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D7691F1CC6C27500AA62F2 /* AddCandidateViewController.swift */; };
 		35D769221CC6CCC400AA62F2 /* EditCandidatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D769211CC6CCC400AA62F2 /* EditCandidatesViewController.swift */; };
+		35D769251CC6D6B400AA62F2 /* Candidates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D769241CC6D6B400AA62F2 /* Candidates.swift */; };
 		8089537948360E6945DDC71C /* Pods_rivi_candidate_rater_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		35D7691D1CC6B46600AA62F2 /* CompareCandidateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompareCandidateViewController.swift; sourceTree = "<group>"; };
 		35D7691F1CC6C27500AA62F2 /* AddCandidateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCandidateViewController.swift; sourceTree = "<group>"; };
 		35D769211CC6CCC400AA62F2 /* EditCandidatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCandidatesViewController.swift; sourceTree = "<group>"; };
+		35D769241CC6D6B400AA62F2 /* Candidates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Candidates.swift; sourceTree = "<group>"; };
 		36E55DDE5414F0766B920037 /* Pods_rivi_candidate_rater_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rivi_candidate_rater_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD9C4BA4733D23E9186CA95A /* Pods-rivi-candidate-rater-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		EE36F4B8C3E4A00F51313E9E /* Pods-rivi-candidate-rater-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rivi-candidate-rater-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-rivi-candidate-rater-ios/Pods-rivi-candidate-rater-ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		35AA6A271CC59ED800464249 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				35D769241CC6D6B400AA62F2 /* Candidates.swift */,
 				35AA6A281CC59EF300464249 /* Profile.swift */,
 			);
 			name = Models;
@@ -421,6 +424,7 @@
 				35AA6A261CC59E1C00464249 /* AppConstants.swift in Sources */,
 				35AA69F11CC5991500464249 /* LoginViewController.swift in Sources */,
 				35AA6A291CC59EF300464249 /* Profile.swift in Sources */,
+				35D769251CC6D6B400AA62F2 /* Candidates.swift in Sources */,
 				35AA6A221CC59BAC00464249 /* Router.swift in Sources */,
 				35AA6A2B1CC59F4900464249 /* RestExtensions.swift in Sources */,
 				35AA69EF1CC5991500464249 /* AppDelegate.swift in Sources */,
