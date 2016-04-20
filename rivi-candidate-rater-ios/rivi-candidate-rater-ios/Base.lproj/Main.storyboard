@@ -9,7 +9,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="rivi_candidate_rater_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="rivi_candidate_rater_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -158,7 +158,13 @@
                             <constraint firstAttribute="trailing" secondItem="Jea-f3-gQg" secondAttribute="trailing" id="rMj-PI-Twq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Candidate Search" id="X4m-3I-aDZ"/>
+                    <navigationItem key="navigationItem" title="Candidate Search" id="X4m-3I-aDZ">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="rfd-HM-X6i">
+                            <connections>
+                                <action selector="logOutClicked:" destination="wel-YX-dnI" id="iDu-bP-l6N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="1EZ-8y-eNa" id="vfd-dN-TcV"/>
                         <outlet property="tableView" destination="Jea-f3-gQg" id="M8y-TU-zFk"/>

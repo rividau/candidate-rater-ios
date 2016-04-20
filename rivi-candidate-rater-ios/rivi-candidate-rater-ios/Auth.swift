@@ -84,26 +84,26 @@ class Auth {
         }
     }
 
-//    class func logOut(callback: (error: NSError?) -> Void) {
-//        NetworkManager.sharedInstance.defaultManager.request(Router.LogOut()).print()
-//            .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
-//                response.print()
-//                
-//                switch response.result {
-//                case .Success(_):
-//                    authToken = nil
-//                    refreshToken = nil
-//                    profile = Profile()
-//                    
-//                    KeychainWrapper.removeObjectForKey(AUTH_KEY_AUTH_TOKEN)
-//                    KeychainWrapper.removeObjectForKey(AUTH_KEY_REFRESH_TOKEN)
-//
-//                    callback(error: nil)
-//                case .Failure(let error):
-//                    callback(error: error)
-//                }
-//        }
-//    }
+    class func logOut(callback: (error: NSError?) -> Void) {
+        NetworkManager.sharedInstance.defaultManager.request(Router.LogOut()).print()
+            .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
+                response.print()
+                
+                switch response.result {
+                case .Success(_):
+                    authToken = nil
+                    refreshToken = nil
+                    profile = Profile()
+                    
+                    KeychainWrapper.removeObjectForKey(AUTH_KEY_AUTH_TOKEN)
+                    KeychainWrapper.removeObjectForKey(AUTH_KEY_REFRESH_TOKEN)
+
+                    callback(error: nil)
+                case .Failure(let error):
+                    callback(error: error)
+                }
+        }
+    }
     
     private class func getTokens(authCode: String, callback: (error: NSError?) -> Void) -> Void {
         NetworkManager.sharedInstance.defaultManager.request(Router.GetTokens(authCode)).print()

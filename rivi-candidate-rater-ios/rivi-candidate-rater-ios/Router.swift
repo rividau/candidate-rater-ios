@@ -18,7 +18,7 @@ enum Router: URLRequestConvertible {
     case LogInUserCredentials(String, String)
     case LogInOffice365()
     case LogInRefreshToken(String, String)
-//    case LogOut()
+    case LogOut()
     case GetTokens(String)
     case GetCurrentUser()
     case GetProfile(Int)
@@ -48,10 +48,10 @@ enum Router: URLRequestConvertible {
                 ], nil, .URL)
             case LogInOffice365():
                 return (Alamofire.Method.GET.rawValue, "/auth/office365", nil, nil, .URL)
-//            case .LogOut():
-//                return (Alamofire.Method.PUT.rawValue, "/tokens/oauth/invalidate", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!
-//                ], nil, .URL)
+            case .LogOut():
+                return (Alamofire.Method.PUT.rawValue, "/tokens/oauth/invalidate", [
+                    AUTH_HEADER_AUTH: Auth.authToken!
+                ], nil, .URL)
             case .GetTokens(let authCode):
                 return (Alamofire.Method.POST.rawValue, "/tokens/oauth/grant", nil, [
                     KEY_AUTH_CODE: authCode

@@ -73,7 +73,7 @@ extension AddCandidateViewController: UITableViewDelegate, UITableViewDataSource
         if indexPath.row < filteredCandidates.count {
             let profile = filteredCandidates[indexPath.row]
             Candidates.sharedInstance.addCandidate(profile)
-            Utility.showAutoHideAlert(self, title: nil, message: "Adding \(profile.name)")
+            Utility.showAutoHideAlert(self, title: nil, message: "Adding \(profile.name)", durationSec: 0.25)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }

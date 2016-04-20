@@ -25,11 +25,20 @@ class CandidateSelectionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    private func rateClicked(profile: Profile) {
-        if let candidateRateVC = storyboard?.instantiateViewControllerWithIdentifier("candidateRate") as? CandidateRateViewController, navController = navigationController {
-            candidateRateVC.profile = profile
-            navController.pushViewController(candidateRateVC, animated: true)
+    @IBAction func logOutClicked(sender: AnyObject) {
+        Auth.logOut { [weak self] (error) -> Void in
+            if let strongSelf = self {
+                if error == nil {
+                    if let loginVC = strongSelf.storyboard?.instantiateViewControllerWithIdentifier("loginViewController") as? LoginViewController {
+                        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = loginVC
+                    }
+                } else {
+                    Utility.showAutoHideAlert(strongSelf, title: nil, message: "Unable to log out.  Please try again later.")
+                }
+            }
         }
+
     }
     
     /*
@@ -80,7 +89,10 @@ extension CandidateSelectionViewController: UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < filteredCandidates.count {
-            rateClicked(filteredCandidates[indexPath.row])
+            if let candidateRateVC = storyboard?.instantiateViewControllerWithIdentifier("candidateRate") as? CandidateRateViewController, navController = navigationController {
+                candidateRateVC.profile = filteredCandidates[indexPath.row]
+                navController.pushViewController(candidateRateVC, animated: true)
+            }
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
