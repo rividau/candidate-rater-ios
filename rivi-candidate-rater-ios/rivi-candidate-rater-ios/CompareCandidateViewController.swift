@@ -21,7 +21,6 @@ class CompareCandidateViewController: UIViewController {
     ]
     
     private var colorIndex = 0
-    private var selectedCandidates = [Profile]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +36,6 @@ class CompareCandidateViewController: UIViewController {
         super.viewWillAppear(animated)
         
         colorIndex = 0
-        selectedCandidates = Candidates.sharedInstance.selectedCandidates
         setData()
     }
     
@@ -48,8 +46,8 @@ class CompareCandidateViewController: UIViewController {
     
     private func setData() {
         var dataSets = [RadarChartDataSet]()
-        for profile in selectedCandidates {
-            dataSets.append(profileToRadarDataSet(profile))
+        for candidate in Candidates.selectedCandidates {
+            dataSets.append(candidateToRadarDataSet(candidate))
         }
         let radarData = RadarChartData(xVals: PARAMETERS, dataSets: dataSets)
         if let font = UIFont(name: "HelveticaNeue-Light", size: 8) {
@@ -58,16 +56,15 @@ class CompareCandidateViewController: UIViewController {
         radarChart.data = radarData
     }
 
-    
-    private func profileToRadarDataSet(profile: Profile) -> RadarChartDataSet {
+    private func candidateToRadarDataSet(candidate: Candidate) -> RadarChartDataSet {
         var dataEntries = [ChartDataEntry]()
-        dataEntries.append(ChartDataEntry(value: Double(profile.goodLooks), xIndex: 0))
-        dataEntries.append(ChartDataEntry(value: Double(profile.wealth), xIndex: 1))
-        dataEntries.append(ChartDataEntry(value: Double(profile.marriagePotential), xIndex: 2))
-        dataEntries.append(ChartDataEntry(value: Double(profile.swag), xIndex: 3))
-        dataEntries.append(ChartDataEntry(value: Double(profile.size), xIndex: 4))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.goodLooks), xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.wealth), xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.marriagePotential), xIndex: 2))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.swag), xIndex: 3))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.size), xIndex: 4))
 
-        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: profile.name)
+        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: candidate.name)
         radarDataSet.fillColor = SET_COLORS[colorIndex]
         radarDataSet.setColor(SET_COLORS[colorIndex])
         radarDataSet.drawFilledEnabled = true

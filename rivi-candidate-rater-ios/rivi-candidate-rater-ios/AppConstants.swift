@@ -41,6 +41,12 @@ let KEY_LIMIT                           = "limit"
 let KEY_OFFSET                          = "offset"
 let KEY_DECAY                           = "decay"
 let KEY_AVATAR                          = "avatar"
+let KEY_CONTENT                         = "content"
+let KEY_GOOD_LOOKS                      = "goodLooks"
+let KEY_WEALTH                          = "wealth"
+let KEY_MARRIAGE_POTENTIAL              = "marriagePotential"
+let KEY_SWAG                            = "swag"
+let KEY_SIZE                            = "size"
 
 let QUERY_ERROR                         = "error"
 

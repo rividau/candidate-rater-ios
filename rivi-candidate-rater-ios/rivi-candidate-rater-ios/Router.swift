@@ -23,6 +23,8 @@ enum Router: URLRequestConvertible {
     case GetCurrentUser()
     case GetProfile(Int)
     case SearchUsers(String)
+    case GetUserRatings(Int)
+    case SaveUserRatings(Candidate)
 //    case ForgetPassword(String)
 //    case GetProfileTags(Int)
 //    case GetAllTags()
@@ -80,7 +82,24 @@ enum Router: URLRequestConvertible {
                     KEY_OFFSET: 0,
 //                    KEY_DECAY: 1
                 ], .URL)
-                
+            case GetUserRatings(let id):
+                return (Alamofire.Method.GET.rawValue, "/people/\(id)/ratings", [
+                    AUTH_HEADER_AUTH: Auth.authToken!
+                ], nil, .URL)
+            case SaveUserRatings(let candidate):
+                let contentJsonObject = JSON([
+                    KEY_GOOD_LOOKS: candidate.goodLooks,
+                    KEY_WEALTH: candidate.wealth,
+                    KEY_MARRIAGE_POTENTIAL: candidate.marriagePotential,
+                    KEY_SWAG: candidate.swag,
+                    KEY_SIZE: candidate.size
+                ])
+
+                return (Alamofire.Method.POST.rawValue, "/people/\(candidate.id)/ratings", [
+                    AUTH_HEADER_AUTH: Auth.authToken!
+                    ], [
+                        KEY_CONTENT: contentJsonObject.rawString() ?? ""
+                    ], .URL)
 //            case .ForgetPassword(let email):
 //                return (Alamofire.Method.POST.rawValue, "/auth/identity/reset_password", nil, [
 //                    AUTH_KEY_EMAIL: email

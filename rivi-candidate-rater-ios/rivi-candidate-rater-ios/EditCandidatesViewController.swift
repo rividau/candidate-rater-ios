@@ -11,13 +11,13 @@ import UIKit
 class EditCandidatesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
-    private var selectedCandidates = [Profile]()
+    private var selectedCandidates = [Candidate]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.editing = true
-        selectedCandidates = Candidates.sharedInstance.selectedCandidates
+        selectedCandidates = Candidates.selectedCandidates
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,8 +62,8 @@ extension EditCandidatesViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             if indexPath.row < selectedCandidates.count {
-                Candidates.sharedInstance.removeCandidate(selectedCandidates[indexPath.row])
-                selectedCandidates = Candidates.sharedInstance.selectedCandidates
+                Candidates.removeCandidate(selectedCandidates[indexPath.row])
+                selectedCandidates = Candidates.selectedCandidates
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             }
         }

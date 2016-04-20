@@ -12,7 +12,7 @@ class AddCandidateViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
-    var filteredCandidates = [Profile]()
+    var filteredCandidates = [Candidate]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,11 +43,17 @@ class AddCandidateViewController: UIViewController {
 
 extension AddCandidateViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        let allCandidates = Candidates.sharedInstance.allCandidates
-        filteredCandidates = allCandidates.filter({
-            $0.name.lowercaseString.containsString(searchText.lowercaseString)
-        })
-        tableView.reloadData()
+        Candidates.searchUsers(searchText) { [weak self] (candidates, error) in
+            if let strongSelf = self {
+                if let candidates = candidates where error == nil {
+                    strongSelf.filteredCandidates = candidates
+                } else {
+                    print("unable to search for \(searchText): \(error)")
+                    strongSelf.filteredCandidates.removeAll()
+                }
+                strongSelf.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -71,9 +77,9 @@ extension AddCandidateViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < filteredCandidates.count {
-            let profile = filteredCandidates[indexPath.row]
-            Candidates.sharedInstance.addCandidate(profile)
-            Utility.showAutoHideAlert(self, title: nil, message: "Adding \(profile.name)", durationSec: 0.25)
+            let selectedCandidate = filteredCandidates[indexPath.row]
+            Candidates.addCandidate(selectedCandidate)
+            Utility.showAutoHideAlert(self, title: nil, message: "Adding \(selectedCandidate.name)", durationSec: 0.25)
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }

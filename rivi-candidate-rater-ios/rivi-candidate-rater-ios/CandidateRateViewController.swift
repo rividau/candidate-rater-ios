@@ -31,7 +31,7 @@ class CandidateRateViewController: UIViewController {
         radarChart.yAxis.axisMaxValue = 10
         radarChart.yAxis.drawLabelsEnabled = false
         
-        copyProfile()
+        copyCandidate()
         
         slider1.value = Float(newCandidate.goodLooks)
         slider2.value = Float(newCandidate.wealth)
@@ -47,7 +47,7 @@ class CandidateRateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func copyProfile() {
+    private func copyCandidate() {
         newCandidate = Candidate(json: candidate.json)
         newCandidate.name = candidate.name
         newCandidate.id = candidate.id
@@ -59,13 +59,15 @@ class CandidateRateViewController: UIViewController {
     }
     
     func saveClicked() {
-        candidate.goodLooks = newCandidate.goodLooks
-        candidate.wealth = newCandidate.wealth
-        candidate.marriagePotential = newCandidate.marriagePotential
-        candidate.swag = newCandidate.swag
-        candidate.size = newCandidate.size
-
-        navigationController?.popViewControllerAnimated(true)
+        Candidates.saveUserRatings(newCandidate) { [weak self] (error) in
+            if let strongSelf = self {
+                if error == nil {
+                    strongSelf.navigationController?.popViewControllerAnimated(true)
+                } else {
+                    Utility.showAutoHideAlert(strongSelf, title: nil, message: "Unable to save user ratings")
+                }
+            }
+        }
     }
     
     @IBAction func goodLooksValueChanged(sender: UISlider) {

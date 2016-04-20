@@ -89,11 +89,20 @@ extension CandidateSelectionViewController: UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < filteredCandidates.count {
-            if let candidateRateVC = storyboard?.instantiateViewControllerWithIdentifier("candidateRate") as? CandidateRateViewController, navController = navigationController {
-                candidateRateVC.candidate = filteredCandidates[indexPath.row]
-                navController.pushViewController(candidateRateVC, animated: true)
+            let selectedCandidate = filteredCandidates[indexPath.row]
+            Candidates.getUserRatings(selectedCandidate) { [weak self] (candidate, error) in
+                if let strongSelf = self {
+                    if error != nil {
+                        print("unable to get candidate ratings: \(error)")
+                    }
+                    if let candidateRateVC = strongSelf.storyboard?.instantiateViewControllerWithIdentifier("candidateRate") as? CandidateRateViewController,
+                        navController = strongSelf.navigationController {
+                        candidateRateVC.candidate = candidate
+                        navController.pushViewController(candidateRateVC, animated: true)
+                    }
+                    strongSelf.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                }
             }
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
 }
