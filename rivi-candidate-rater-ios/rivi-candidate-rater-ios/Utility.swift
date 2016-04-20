@@ -17,4 +17,15 @@ class Utility {
         }
         viewController.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    class func showAutoHideAlert(viewController: UIViewController, title: String?, message: String, durationSec: NSTimeInterval? = nil) -> Void {
+        let alertController: AutohideAlertController
+        if let durationSec = durationSec {
+            alertController = AutohideAlertController(title: title, message: message, preferredStyle: .Alert, durationSec: durationSec)
+        } else {
+            alertController = AutohideAlertController(title: title, message: message, preferredStyle: .Alert)
+        }
+        
+        viewController.presentViewController(alertController, animated: true, completion: nil)
+    }
 }

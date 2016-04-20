@@ -29,12 +29,6 @@ class AddCandidateViewController: UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
 
-    @IBAction func addClicked(sender: AnyObject) {
-        if let selectedRow = tableView.indexPathForSelectedRow?.row where selectedRow < filteredCandidates.count {
-            Candidates.sharedInstance.addCandidate(filteredCandidates[selectedRow])
-        }
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -73,5 +67,14 @@ extension AddCandidateViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row < filteredCandidates.count {
+            let profile = filteredCandidates[indexPath.row]
+            Candidates.sharedInstance.addCandidate(profile)
+            Utility.showAutoHideAlert(self, title: nil, message: "Adding \(profile.name)")
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
 }

@@ -46,6 +46,12 @@ class CandidateSelectionViewController: UIViewController {
 
 extension CandidateSelectionViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        Candidates.searchUsers(searchText) { (error) in
+            if error != nil {
+            } else {
+                print("unable to search for \(searchText): \(error)")
+            }
+        }
         let allCandidates = Candidates.sharedInstance.allCandidates
         filteredCandidates = allCandidates.filter({
             $0.name.lowercaseString.containsString(searchText.lowercaseString)
@@ -75,6 +81,7 @@ extension CandidateSelectionViewController: UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < filteredCandidates.count {
             rateClicked(filteredCandidates[indexPath.row])
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
 }

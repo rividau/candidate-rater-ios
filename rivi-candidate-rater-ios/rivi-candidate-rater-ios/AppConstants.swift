@@ -28,6 +28,12 @@ let KEY_ID                              = "id"
 let KEY_NAME                            = "name"
 let KEY_COMPANY_NAME                    = "company_name"
 let KEY_CATEGORY                        = "category"
+let KEY_FIELDS                          = "fields"
+let KEY_Q                               = "q"
+let KEY_FILTER                          = "filter"
+let KEY_LIMIT                           = "limit"
+let KEY_OFFSET                          = "offset"
+let KEY_DECAY                           = "decay"
 
 // MARK: Profile
 

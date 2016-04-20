@@ -18,6 +18,7 @@ class CandidateRateViewController: UIViewController {
     @IBOutlet weak var slider5: UISlider!
 
     var profile: Profile!
+    var newProfile: Profile!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,8 @@ class CandidateRateViewController: UIViewController {
         radarChart.yAxis.axisMinValue = 0
         radarChart.yAxis.axisMaxValue = 10
         radarChart.yAxis.drawLabelsEnabled = false
+        
+        copyProfile()
         
         slider1.value = Float(profile.goodLooks)
         slider2.value = Float(profile.wealth)
@@ -44,44 +47,60 @@ class CandidateRateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func copyProfile() {
+        newProfile = Profile(json: profile.json)
+        newProfile.name = profile.name
+        newProfile.id = profile.id
+        newProfile.goodLooks = profile.goodLooks
+        newProfile.wealth = profile.wealth
+        newProfile.marriagePotential = profile.marriagePotential
+        newProfile.swag = profile.swag
+        newProfile.size = profile.size
+    }
+    
     func saveClicked() {
-        print("SAVE CANDIDATE RATING")
+        profile.goodLooks = newProfile.goodLooks
+        profile.wealth = newProfile.wealth
+        profile.marriagePotential = newProfile.marriagePotential
+        profile.swag = newProfile.swag
+        profile.size = newProfile.size
+
         navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func goodLooksValueChanged(sender: UISlider) {
-        profile.goodLooks = Double(Int(sender.value + 0.5))
+        newProfile.goodLooks = Double(Int(sender.value + 0.5))
         setData()
     }
 
     @IBAction func wealthValueChanged(sender: UISlider) {
-        profile.wealth = Double(Int(sender.value + 0.5))
+        newProfile.wealth = Double(Int(sender.value + 0.5))
         setData()
     }
     
     @IBAction func marriageValueChanged(sender: UISlider) {
-        profile.marriagePotential = Double(Int(sender.value + 0.5))
+        newProfile.marriagePotential = Double(Int(sender.value + 0.5))
         setData()
     }
     
     @IBAction func swagValueChanged(sender: UISlider) {
-        profile.swag = Double(Int(sender.value + 0.5))
+        newProfile.swag = Double(Int(sender.value + 0.5))
         setData()
     }
     
     @IBAction func sizeValueChanged(sender: UISlider) {
-        profile.size = Double(Int(sender.value + 0.5))
+        newProfile.size = Double(Int(sender.value + 0.5))
         setData()
 
     }
     
     private func setData() {
         var dataEntries = [ChartDataEntry]()
-        dataEntries.append(ChartDataEntry(value: profile.goodLooks, xIndex: 0))
-        dataEntries.append(ChartDataEntry(value: profile.wealth, xIndex: 1))
-        dataEntries.append(ChartDataEntry(value: profile.marriagePotential, xIndex: 2))
-        dataEntries.append(ChartDataEntry(value: profile.swag, xIndex: 3))
-        dataEntries.append(ChartDataEntry(value: profile.size, xIndex: 4))
+        dataEntries.append(ChartDataEntry(value: newProfile.goodLooks, xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: newProfile.wealth, xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: newProfile.marriagePotential, xIndex: 2))
+        dataEntries.append(ChartDataEntry(value: newProfile.swag, xIndex: 3))
+        dataEntries.append(ChartDataEntry(value: newProfile.size, xIndex: 4))
         
         let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: profile.name)
         radarDataSet.fillColor = UIColor.blueColor()

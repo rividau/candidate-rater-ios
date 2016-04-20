@@ -367,11 +367,6 @@
                                                 <action selector="doneClicked:" destination="qFR-Zo-zST" id="kNJ-C8-TEL"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Add" id="tpp-Yj-Q3H">
-                                            <connections>
-                                                <action selector="addClicked:" destination="qFR-Zo-zST" id="zQr-lH-1iL"/>
-                                            </connections>
-                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

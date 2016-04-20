@@ -6,7 +6,8 @@
 //  Copyright © 2016 Riviera Partners. All rights reserved.
 //
 
-import Foundation
+import Alamofire
+import SwiftyJSON
 
 class Candidates {
     var allCandidates: [Profile]!
@@ -18,7 +19,7 @@ class Candidates {
         }
         return Singleton.instance
     }
-
+    
     init() {
         allCandidates = [Profile]()
         selectedCandidates = [Profile]()
@@ -82,6 +83,27 @@ class Candidates {
         andy.swag = 2
         andy.size = 8
         allCandidates.append(andy)
+    }
+    
+    class func searchUsers(name: String, callback: (error: NSError?) -> Void) -> Void {
+        NetworkManager.sharedInstance.defaultManager.request(Router.SearchUsers(name)).print()
+            .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
+                response.print()
+                
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    callback(error: nil)
+//                    guard let authCode = json[KEY_AUTH_CODE].string else {
+//                        callback(error: NSError(domain: "Auth.logInUserCredentials", code: 0, userInfo: [KEY_MESSAGE : "SUCCESS without auth code"]))
+//                        return
+//                    }
+//                    
+//                    getTokens(authCode, callback: callback)
+                case .Failure(let error):
+                    callback(error: error)
+                }
+        }
     }
     
     func addCandidate(profile: Profile) {
