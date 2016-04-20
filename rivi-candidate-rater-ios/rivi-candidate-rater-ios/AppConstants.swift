@@ -11,13 +11,13 @@ import UIKit
 public let DEBUG_LOG_HTTP = true
 
 // delve
-public let BASE_URL = "http://api.dev:3000"
-public let CLIENT_KEY = "6a84134a-219e-4d93-8cf0-240d20eba870"
+//public let BASE_URL = "http://api.dev:3000"
+//public let CLIENT_KEY = "6a84134a-219e-4d93-8cf0-240d20eba870"
 
 // sutro
-//public let BASE_URL = "http://api.dev:3000"
+public let BASE_URL = "http://api.dev:3000"
 ////public let BASE_URL = "https://localhost:9292"
-//public let CLIENT_KEY = "df246603-86d1-4ad3-9779-5d4ecdaf8569"      // sutro
+public let CLIENT_KEY = "df246603-86d1-4ad3-9779-5d4ecdaf8569"
 
 let AUTH_HEADER_CLIENT_KEY              = "Client-Key"
 let AUTH_HEADER_AUTH                    = "Authorization"
@@ -40,6 +40,7 @@ let KEY_FILTER                          = "filter"
 let KEY_LIMIT                           = "limit"
 let KEY_OFFSET                          = "offset"
 let KEY_DECAY                           = "decay"
+let KEY_AVATAR                          = "avatar"
 
 let QUERY_ERROR                         = "error"
 

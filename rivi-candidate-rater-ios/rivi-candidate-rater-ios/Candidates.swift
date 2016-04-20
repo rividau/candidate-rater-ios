@@ -85,23 +85,23 @@ class Candidates {
         allCandidates.append(andy)
     }
     
-    class func searchUsers(name: String, callback: (error: NSError?) -> Void) -> Void {
+    class func searchUsers(name: String, callback: (candidates: [Candidate]?, error: NSError?) -> Void) -> Void {
         NetworkManager.sharedInstance.defaultManager.request(Router.SearchUsers(name)).print()
             .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
                 response.print()
                 
                 switch response.result {
                 case .Success(let data):
-                    let json = JSON(data)
-                    callback(error: nil)
-//                    guard let authCode = json[KEY_AUTH_CODE].string else {
-//                        callback(error: NSError(domain: "Auth.logInUserCredentials", code: 0, userInfo: [KEY_MESSAGE : "SUCCESS without auth code"]))
-//                        return
-//                    }
-//                    
-//                    getTokens(authCode, callback: callback)
+                    var candidates = [Candidate]()
+                    if let jsonArray = JSON(data).array {
+                        for jsonCandidate in jsonArray {
+                            candidates.append(Candidate(json: jsonCandidate))
+                        }
+                    }
+
+                    callback(candidates: candidates, error: nil)
                 case .Failure(let error):
-                    callback(error: error)
+                    callback(candidates: nil, error: error)
                 }
         }
     }

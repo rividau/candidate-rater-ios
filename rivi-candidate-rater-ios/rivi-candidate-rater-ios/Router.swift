@@ -65,22 +65,20 @@ enum Router: URLRequestConvertible {
                     AUTH_HEADER_AUTH: Auth.authToken!
                 ], nil, .URL)
             case SearchUsers(let name):
-//                https://localhost:9292/search/all?limit=20&offset=0&fields=["name","id","logo","avatar","locations.city","locations.general_phone","locations.state","location.city","location.state","location.general_phone","employments.company_name","employments.current","employments.title","degrees.school_name","company_name","status","do_not_call","cached_rating","subject","category","person","job","status","max_progress"]&q=dau&filter=[]&decay=1
-                
                 let fieldsJsonObject = JSON([
                     "name","id","avatar"
                 ])
-                let filterJsonObject = JSON([])
-                    
+//                let filterJsonObject = JSON([])
+                
                 return (Alamofire.Method.GET.rawValue, "/search/all", [
                     AUTH_HEADER_AUTH: Auth.authToken!
                 ], [
                     KEY_FIELDS: fieldsJsonObject.rawString() ?? "",
                     KEY_Q: name,
-                    KEY_FILTER: filterJsonObject.rawString() ?? "",
-                    KEY_LIMIT: 20,
+//                    KEY_FILTER: filterJsonObject.rawString() ?? "",
+                    KEY_LIMIT: 500,
                     KEY_OFFSET: 0,
-                    KEY_DECAY: 1
+//                    KEY_DECAY: 1
                 ], .URL)
                 
 //            case .ForgetPassword(let email):

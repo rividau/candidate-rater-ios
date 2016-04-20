@@ -12,7 +12,7 @@ class CandidateSelectionViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
 
-    var filteredCandidates = [Profile]()
+    var filteredCandidates = [Candidate]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,17 +55,17 @@ class CandidateSelectionViewController: UIViewController {
 
 extension CandidateSelectionViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        Candidates.searchUsers(searchText) { (error) in
-            if error != nil {
-            } else {
-                print("unable to search for \(searchText): \(error)")
+        Candidates.searchUsers(searchText) { [weak self] (candidates, error) in
+            if let strongSelf = self {
+                if let candidates = candidates where error == nil {
+                    strongSelf.filteredCandidates = candidates
+                } else {
+                    print("unable to search for \(searchText): \(error)")
+                    strongSelf.filteredCandidates.removeAll()
+                }
+                strongSelf.tableView.reloadData()
             }
         }
-        let allCandidates = Candidates.sharedInstance.allCandidates
-        filteredCandidates = allCandidates.filter({
-            $0.name.lowercaseString.containsString(searchText.lowercaseString)
-        })
-        tableView.reloadData()
     }
 }
 
@@ -90,7 +90,7 @@ extension CandidateSelectionViewController: UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < filteredCandidates.count {
             if let candidateRateVC = storyboard?.instantiateViewControllerWithIdentifier("candidateRate") as? CandidateRateViewController, navController = navigationController {
-                candidateRateVC.profile = filteredCandidates[indexPath.row]
+                candidateRateVC.candidate = filteredCandidates[indexPath.row]
                 navController.pushViewController(candidateRateVC, animated: true)
             }
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
