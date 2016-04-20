@@ -69,6 +69,21 @@ class Auth {
         }
     }
 
+    class func logInOffice365(viewController: UIViewController, callback: (error: NSError?) -> Void) -> Void {
+        let request = NetworkManager.sharedInstance.defaultManager.request(Router.LogInOffice365()).print()
+        if let storyboard = viewController.storyboard, urlRequest = request.request, userAuthWebVC = storyboard.instantiateViewControllerWithIdentifier(USER_AUTH_WEB_VC_ID) as? UserAuthWebViewController {
+            userAuthWebVC.urlRequest = urlRequest
+            userAuthWebVC.callback = { (authCode: String?) -> Void in
+                if let authCode = authCode {
+                    getTokens(authCode, callback: callback)
+                } else {
+                    callback(error: NSError(domain: "Auth.logInThirdParty", code: 0, userInfo: [KEY_MESSAGE : "SUCCESS without auth code"]))
+                }
+            }
+            viewController.presentViewController(userAuthWebVC, animated: true, completion: nil)
+        }
+    }
+
 //    class func logOut(callback: (error: NSError?) -> Void) {
 //        NetworkManager.sharedInstance.defaultManager.request(Router.LogOut()).print()
 //            .responseJSON { (response: Response<AnyObject, NSError>) -> Void in

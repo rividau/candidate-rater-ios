@@ -30,7 +30,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +49,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     } else {
                         strongSelf.gotoHome()
                     }
+                }
+            }
+        }
+    }
+    
+    @IBAction func office365LoginClicked(sender: AnyObject) {
+        Auth.logInOffice365(self) { [weak self] (error) -> Void in
+            if let strongSelf = self {
+                if error != nil {
+                    Utility.showAlert(strongSelf, title: "Login Failure", message: "Unable to log in.  Please try again later", actions: [
+                        UIAlertAction(title: "OK", style: .Default, handler: nil)
+                        ])
+                } else {
+                    strongSelf.gotoHome()
                 }
             }
         }

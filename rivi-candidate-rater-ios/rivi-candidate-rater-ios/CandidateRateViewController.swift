@@ -69,38 +69,38 @@ class CandidateRateViewController: UIViewController {
     }
     
     @IBAction func goodLooksValueChanged(sender: UISlider) {
-        newProfile.goodLooks = Double(Int(sender.value + 0.5))
+        newProfile.goodLooks = Int(sender.value + 0.5)
         setData()
     }
 
     @IBAction func wealthValueChanged(sender: UISlider) {
-        newProfile.wealth = Double(Int(sender.value + 0.5))
+        newProfile.wealth = Int(sender.value + 0.5)
         setData()
     }
     
     @IBAction func marriageValueChanged(sender: UISlider) {
-        newProfile.marriagePotential = Double(Int(sender.value + 0.5))
+        newProfile.marriagePotential = Int(sender.value + 0.5)
         setData()
     }
     
     @IBAction func swagValueChanged(sender: UISlider) {
-        newProfile.swag = Double(Int(sender.value + 0.5))
+        newProfile.swag = Int(sender.value + 0.5)
         setData()
     }
     
     @IBAction func sizeValueChanged(sender: UISlider) {
-        newProfile.size = Double(Int(sender.value + 0.5))
+        newProfile.size = Int(sender.value + 0.5)
         setData()
 
     }
     
     private func setData() {
         var dataEntries = [ChartDataEntry]()
-        dataEntries.append(ChartDataEntry(value: newProfile.goodLooks, xIndex: 0))
-        dataEntries.append(ChartDataEntry(value: newProfile.wealth, xIndex: 1))
-        dataEntries.append(ChartDataEntry(value: newProfile.marriagePotential, xIndex: 2))
-        dataEntries.append(ChartDataEntry(value: newProfile.swag, xIndex: 3))
-        dataEntries.append(ChartDataEntry(value: newProfile.size, xIndex: 4))
+        dataEntries.append(ChartDataEntry(value: Double(newProfile.goodLooks), xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: Double(newProfile.wealth), xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: Double(newProfile.marriagePotential), xIndex: 2))
+        dataEntries.append(ChartDataEntry(value: Double(newProfile.swag), xIndex: 3))
+        dataEntries.append(ChartDataEntry(value: Double(newProfile.size), xIndex: 4))
         
         let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: profile.name)
         radarDataSet.fillColor = UIColor.blueColor()

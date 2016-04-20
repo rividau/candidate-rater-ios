@@ -60,11 +60,13 @@ class CompareCandidateViewController: UIViewController {
 
     
     private func profileToRadarDataSet(profile: Profile) -> RadarChartDataSet {
-        let values = [profile.goodLooks, profile.wealth, profile.marriagePotential, profile.swag, profile.size]
         var dataEntries = [ChartDataEntry]()
-        for i in 0 ..< values.count {
-            dataEntries.append(ChartDataEntry(value: values[i], xIndex: i))
-        }
+        dataEntries.append(ChartDataEntry(value: Double(profile.goodLooks), xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: Double(profile.wealth), xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: Double(profile.marriagePotential), xIndex: 2))
+        dataEntries.append(ChartDataEntry(value: Double(profile.swag), xIndex: 3))
+        dataEntries.append(ChartDataEntry(value: Double(profile.size), xIndex: 4))
+
         let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: profile.name)
         radarDataSet.fillColor = SET_COLORS[colorIndex]
         radarDataSet.setColor(SET_COLORS[colorIndex])

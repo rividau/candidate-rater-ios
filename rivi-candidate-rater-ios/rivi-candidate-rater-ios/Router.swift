@@ -16,6 +16,7 @@ import SwiftyJSON
 
 enum Router: URLRequestConvertible {
     case LogInUserCredentials(String, String)
+    case LogInOffice365()
     case LogInRefreshToken(String, String)
 //    case LogOut()
     case GetTokens(String)
@@ -45,6 +46,8 @@ enum Router: URLRequestConvertible {
                     AUTH_HEADER_AUTH: authToken,
                     AUTH_HEADER_REFRESH_TOKEN: refreshToken
                 ], nil, .URL)
+            case LogInOffice365():
+                return (Alamofire.Method.GET.rawValue, "/auth/office365", nil, nil, .URL)
 //            case .LogOut():
 //                return (Alamofire.Method.PUT.rawValue, "/tokens/oauth/invalidate", [
 //                    AUTH_HEADER_AUTH: Auth.authToken!
