@@ -11,11 +11,13 @@ import SwiftyJSON
 
 class Candidate {
     var json: JSON!
+    var jsonRatings: JSON?
     
     var id = 0
     var avatar = ""
     var name = ""
 
+    var ratingId = 0
     var goodLooks = 0
     var wealth = 0
     var marriagePotential = 0
@@ -31,10 +33,12 @@ class Candidate {
     }
     
     func setRatings(jsonRatings: JSON) {
-        goodLooks = jsonRatings[KEY_CONTENT][KEY_GOOD_LOOKS].int ?? 0
-        wealth = jsonRatings[KEY_CONTENT][KEY_WEALTH].int ?? 0
-        marriagePotential = jsonRatings[KEY_CONTENT][KEY_MARRIAGE_POTENTIAL].int ?? 0
-        swag = jsonRatings[KEY_CONTENT][KEY_SWAG].int ?? 0
-        size = jsonRatings[KEY_CONTENT][KEY_SIZE].int ?? 0
+        self.jsonRatings = jsonRatings
+
+        goodLooks = jsonRatings[0][KEY_CONTENT][KEY_GOOD_LOOKS].int ?? 0
+        wealth = jsonRatings[0][KEY_CONTENT][KEY_WEALTH].int ?? 0
+        marriagePotential = jsonRatings[0][KEY_CONTENT][KEY_MARRIAGE_POTENTIAL].int ?? 0
+        swag = jsonRatings[0][KEY_CONTENT][KEY_SWAG].int ?? 0
+        size = jsonRatings[0][KEY_CONTENT][KEY_SIZE].int ?? 0
     }
 }

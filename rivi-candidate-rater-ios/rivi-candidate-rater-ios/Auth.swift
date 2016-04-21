@@ -165,18 +165,4 @@ class Auth {
                 }
         }
     }
-    
-//    class func forgetPassword(email: String, callback: (error: NSError?) -> Void) -> Void {
-//        NetworkManager.sharedInstance.defaultManager.request(Router.ForgetPassword(email)).print()
-//            .responseString { (response: Response<String, NSError>) -> Void in
-//                response.print()
-//
-//                switch response.result {
-//                case .Success(_):
-//                    callback(error: nil)
-//                case .Failure(let error):
-//                    callback(error: error)
-//                }
-//        }
-//    }
 }

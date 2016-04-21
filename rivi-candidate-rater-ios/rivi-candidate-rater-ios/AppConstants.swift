@@ -47,6 +47,11 @@ let KEY_WEALTH                          = "wealth"
 let KEY_MARRIAGE_POTENTIAL              = "marriagePotential"
 let KEY_SWAG                            = "swag"
 let KEY_SIZE                            = "size"
+let KEY_RELATED_OBJECT_ID               = "related_object_id"
+let KEY_RELATED_OBJECT_TYPE             = "related_object_type"
+let KEY_SCORE                           = "score"
+let RELATED_OBJECT_TYPE_PERSON          = "Person"
+let RATING_TYPE_PRE_INTAKE              = "Pre Intake"
 
 let QUERY_ERROR                         = "error"
 

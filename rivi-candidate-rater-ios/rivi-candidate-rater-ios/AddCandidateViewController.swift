@@ -78,9 +78,13 @@ extension AddCandidateViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < filteredCandidates.count {
             let selectedCandidate = filteredCandidates[indexPath.row]
-            Candidates.addCandidate(selectedCandidate)
-            Utility.showAutoHideAlert(self, title: nil, message: "Adding \(selectedCandidate.name)", durationSec: 0.25)
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            Candidates.getUserRatings(selectedCandidate) { [weak self] (candidate, error) in
+                if let strongSelf = self {
+                    Candidates.addCandidate(candidate)
+                    Utility.showAutoHideAlert(strongSelf, title: nil, message: "Adding \(selectedCandidate.name)", durationSec: 0.25)
+                    strongSelf.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                }
+            }
         }
     }
 }

@@ -25,14 +25,6 @@ enum Router: URLRequestConvertible {
     case SearchUsers(String)
     case GetUserRatings(Int)
     case SaveUserRatings(Candidate)
-//    case ForgetPassword(String)
-//    case GetProfileTags(Int)
-//    case GetAllTags()
-//    case GetEmployments(Int)
-//    case GetDegrees(Int)
-//    case GetApplications(Bool, Int, Int)
-//    case GetApplicationDossier(Int)
-//    case SetApplicationStatus(Int, String, String?)
     
     var URLRequest: NSMutableURLRequest {
         let result: (method: String, path: String, headers: [String: String]?, parameters: [String: AnyObject]?, encoding: Alamofire.ParameterEncoding) = {
@@ -87,91 +79,21 @@ enum Router: URLRequestConvertible {
                     AUTH_HEADER_AUTH: Auth.authToken!
                 ], nil, .URL)
             case SaveUserRatings(let candidate):
-                let contentJsonObject = JSON([
-                    KEY_GOOD_LOOKS: candidate.goodLooks,
-                    KEY_WEALTH: candidate.wealth,
-                    KEY_MARRIAGE_POTENTIAL: candidate.marriagePotential,
-                    KEY_SWAG: candidate.swag,
-                    KEY_SIZE: candidate.size
-                ])
-
-                return (Alamofire.Method.POST.rawValue, "/people/\(candidate.id)/ratings", [
+                return (Alamofire.Method.POST.rawValue, "/ratings/", [
                     AUTH_HEADER_AUTH: Auth.authToken!
-                    ], [
-                        KEY_CONTENT: contentJsonObject.rawString() ?? ""
-                    ], .URL)
-//            case .ForgetPassword(let email):
-//                return (Alamofire.Method.POST.rawValue, "/auth/identity/reset_password", nil, [
-//                    AUTH_KEY_EMAIL: email
-//                ], .URL)
-//            case .GetProfileTags(let personId): // should also include results from "/people/\(personId)/tags" endpoint
-//                return (Alamofire.Method.GET.rawValue, "/people/\(personId)/all_tags", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!
-//                ], nil, .URL)
-//            case .GetAllTags():
-////                let fieldsJsonObject = JSON([
-////                    "category", "subcategory", "name", "id"
-////                ])
-////                let filterJsonObject = JSON([
-////                    [
-////                        "field": "category",
-////                        "is": ["Technologies"]
-////                    ]
-////                ])
-//                
-////                return (Alamofire.Method.GET.rawValue, "search/tags", [
-//                return (Alamofire.Method.GET.rawValue, "search/candidate/tags", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!,
-//                ], [
-////                        "fields": fieldsJsonObject.rawString() ?? "",
-////                        "filter": filterJsonObject.rawString() ?? "",
-//                    "q": "",
-////                        "method": "autocomplete",
-//                    "limit": 999,
-//                    "offset": 0
-//                ], .URL)
-//            case .GetEmployments(let personId):
-//                return (Alamofire.Method.GET.rawValue, "/people/\(personId)/employments", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!
-//                ], nil, .URL)
-//            case .GetDegrees(let personId):
-//                return (Alamofire.Method.GET.rawValue, "/people/\(personId)/degrees", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!
-//                ], nil, .URL)
-//            case .GetApplications(let isOpen, let offset, let limit):
-//                let scopeJson = JSON(isOpen ? [
-//                    APPLICATIONS_KEY_WITH_OPEN_JOB: nil,
-//                    APPLICATIONS_KEY_CANDIDATE_APP: nil
-//                ] : [
-//                    APPLICATIONS_KEY_WITH_OPEN_JOB: nil,
-//                    APPLICATIONS_KEY_CANDIDATE_REJECT: nil
-//                ])
-//
-//                return (Alamofire.Method.GET.rawValue, "/people/\(Auth.profile.id)/applications", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!
-//                ], [
-//                    APPLICATIONS_KEY_SCOPE: scopeJson.rawString() ?? "",
-//                    APPLICATIONS_KEY_OFFSET: offset,
-//                    APPLICATIONS_KEY_LIMIT: limit,
-//                    APPLICATIONS_KEY_ORDER_BY: "max_progress_order:desc,updated_at:desc"
-//                ], .URL)
-//            case .GetApplicationDossier(let appId):
-//                return (Alamofire.Method.GET.rawValue, "/jobs/\(appId)/dossier", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!
-//                ], nil, .URL)
-//            case SetApplicationStatus(let appId, let status, let reason):
-//                let params = reason == nil ? [
-//                    KEY_ID : appId,
-//                    APPLICATION_KEY_STATUS : status
-//                ] : [
-//                    KEY_ID : appId,
-//                    APPLICATION_KEY_STATUS : status,
-//                    APPLICATION_KEY_REJECT_REASON : reason!
-//                ]
-//
-//                return (Alamofire.Method.PUT.rawValue, "/applications/\(appId)", [
-//                    AUTH_HEADER_AUTH: Auth.authToken!
-//                ], (params as! [String : AnyObject]), .JSON)
+                ], [
+                    KEY_RELATED_OBJECT_ID: candidate.id,
+                    KEY_RELATED_OBJECT_TYPE: RELATED_OBJECT_TYPE_PERSON,
+                    KEY_CATEGORY: RATING_TYPE_PRE_INTAKE,
+                    KEY_SCORE: 0,
+                    KEY_CONTENT: [
+                        KEY_GOOD_LOOKS: candidate.goodLooks,
+                        KEY_WEALTH: candidate.wealth,
+                        KEY_MARRIAGE_POTENTIAL: candidate.marriagePotential,
+                        KEY_SWAG: candidate.swag,
+                        KEY_SIZE: candidate.size
+                    ]
+                ], .JSON)
             }
         }()
         

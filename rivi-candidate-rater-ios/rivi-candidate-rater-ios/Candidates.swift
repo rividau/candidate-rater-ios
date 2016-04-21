@@ -63,6 +63,41 @@ class Candidates {
                     callback(error: error)
                 }
         }
+//        NetworkManager.sharedInstance.defaultManager.request(.POST, BASE_URL + "/ratings/", parameters: nil, encoding: .Custom({ (convertible: URLRequestConvertible, params: [String : AnyObject]?) -> (NSMutableURLRequest, NSError?) in
+//            let contentJsonObject = JSON([
+//                KEY_GOOD_LOOKS: candidate.goodLooks,
+//                KEY_WEALTH: candidate.wealth,
+//                KEY_MARRIAGE_POTENTIAL: candidate.marriagePotential,
+//                KEY_SWAG: candidate.swag,
+//                KEY_SIZE: candidate.size
+//            ])
+//            let bodyJsonObject = JSON([
+//                KEY_RELATED_OBJECT_ID: candidate.id,
+//                KEY_RELATED_OBJECT_TYPE: RELATED_OBJECT_TYPE_PERSON,
+//                KEY_CATEGORY: RATING_TYPE_PRE_INTAKE,
+//                KEY_SCORE: 0,
+//                KEY_CONTENT: contentJsonObject.rawString() ?? ""
+//            ])
+//
+//            let mutableRequest = convertible.URLRequest.copy() as! NSMutableURLRequest
+//            mutableRequest.HTTPBody = "{\(bodyJsonObject.rawString())}".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+//            return (mutableRequest, nil)
+//        }), headers: [
+//            AUTH_HEADER_AUTH: Auth.authToken!
+//        ]).print()
+//            .responseJSON { (response: Response<AnyObject, NSError>) -> Void in
+//                response.print()
+//
+//                switch response.result {
+//                case .Success(_):
+//                    if let selectedIndex = selectedCandidates.indexOf({ $0.id == candidate.id }) {
+//                        selectedCandidates[selectedIndex] = candidate
+//                    }
+//                    callback(error: nil)
+//                case .Failure(let error):
+//                    callback(error: error)
+//                }
+//        }
     }
     
     class func addCandidate(candidate: Candidate) {
