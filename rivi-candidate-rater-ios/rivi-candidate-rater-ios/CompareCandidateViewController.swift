@@ -17,7 +17,12 @@ class CompareCandidateViewController: UIViewController {
         UIColor.yellowColor(),
         UIColor.redColor(),
         UIColor.greenColor(),
-        UIColor.orangeColor()
+        UIColor.orangeColor(),
+        UIColor.brownColor(),
+        UIColor.cyanColor(),
+        UIColor.lightGrayColor(),
+        UIColor.purpleColor(),
+        UIColor.magentaColor()
     ]
     
     private var colorIndex = 0
@@ -30,6 +35,7 @@ class CompareCandidateViewController: UIViewController {
         radarChart.yAxis.axisMinValue = 0
         radarChart.yAxis.axisMaxValue = 10
         radarChart.yAxis.drawLabelsEnabled = false
+        radarChart.legend.wordWrapEnabled = true
     }
 
     override func viewWillAppear(animated: Bool) {
