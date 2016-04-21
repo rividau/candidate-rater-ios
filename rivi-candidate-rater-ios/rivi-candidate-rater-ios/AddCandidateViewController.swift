@@ -43,15 +43,20 @@ class AddCandidateViewController: UIViewController {
 
 extension AddCandidateViewController: UISearchBarDelegate {
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        Candidates.searchUsers(searchText) { [weak self] (candidates, error) in
-            if let strongSelf = self {
-                if let candidates = candidates where error == nil {
-                    strongSelf.filteredCandidates = candidates
-                } else {
-                    print("unable to search for \(searchText): \(error)")
-                    strongSelf.filteredCandidates.removeAll()
+        if searchText.isEmpty {
+            filteredCandidates.removeAll()
+            tableView.reloadData()
+        } else {
+            Candidates.searchUsers(searchText) { [weak self] (candidates, error) in
+                if let strongSelf = self {
+                    if let candidates = candidates where error == nil {
+                        strongSelf.filteredCandidates = candidates
+                    } else {
+                        print("unable to search for \(searchText): \(error)")
+                        strongSelf.filteredCandidates.removeAll()
+                    }
+                    strongSelf.tableView.reloadData()
                 }
-                strongSelf.tableView.reloadData()
             }
         }
     }
