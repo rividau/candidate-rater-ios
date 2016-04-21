@@ -35,6 +35,7 @@ class Candidate {
     func setRatings(jsonRatings: JSON) {
         self.jsonRatings = jsonRatings
 
+        ratingId = jsonRatings[0][KEY_ID].int ?? 0
         goodLooks = jsonRatings[0][KEY_CONTENT][KEY_GOOD_LOOKS].int ?? 0
         wealth = jsonRatings[0][KEY_CONTENT][KEY_WEALTH].int ?? 0
         marriagePotential = jsonRatings[0][KEY_CONTENT][KEY_MARRIAGE_POTENTIAL].int ?? 0

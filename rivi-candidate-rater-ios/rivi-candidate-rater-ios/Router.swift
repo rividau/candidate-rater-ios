@@ -24,7 +24,8 @@ enum Router: URLRequestConvertible {
     case GetProfile(Int)
     case SearchUsers(String)
     case GetUserRatings(Int)
-    case SaveUserRatings(Candidate)
+    case CreateUserRatings(Candidate)
+    case UpdateUserRatings(Candidate)
     
     var URLRequest: NSMutableURLRequest {
         let result: (method: String, path: String, headers: [String: String]?, parameters: [String: AnyObject]?, encoding: Alamofire.ParameterEncoding) = {
@@ -78,7 +79,7 @@ enum Router: URLRequestConvertible {
                 return (Alamofire.Method.GET.rawValue, "/people/\(id)/ratings", [
                     AUTH_HEADER_AUTH: Auth.authToken!
                 ], nil, .URL)
-            case SaveUserRatings(let candidate):
+            case CreateUserRatings(let candidate):
                 return (Alamofire.Method.POST.rawValue, "/ratings/", [
                     AUTH_HEADER_AUTH: Auth.authToken!
                 ], [
@@ -86,6 +87,18 @@ enum Router: URLRequestConvertible {
                     KEY_RELATED_OBJECT_TYPE: RELATED_OBJECT_TYPE_PERSON,
                     KEY_CATEGORY: RATING_TYPE_PRE_INTAKE,
                     KEY_SCORE: 0,
+                    KEY_CONTENT: [
+                        KEY_GOOD_LOOKS: candidate.goodLooks,
+                        KEY_WEALTH: candidate.wealth,
+                        KEY_MARRIAGE_POTENTIAL: candidate.marriagePotential,
+                        KEY_SWAG: candidate.swag,
+                        KEY_SIZE: candidate.size
+                    ]
+                ], .JSON)
+            case UpdateUserRatings(let candidate):
+                return (Alamofire.Method.PUT.rawValue, "/ratings/\(candidate.ratingId)", [
+                    AUTH_HEADER_AUTH: Auth.authToken!
+                ], [
                     KEY_CONTENT: [
                         KEY_GOOD_LOOKS: candidate.goodLooks,
                         KEY_WEALTH: candidate.wealth,

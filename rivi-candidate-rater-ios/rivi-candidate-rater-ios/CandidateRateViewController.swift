@@ -18,7 +18,6 @@ class CandidateRateViewController: UIViewController {
     @IBOutlet weak var slider5: UISlider!
 
     var candidate: Candidate!
-    var newCandidate: Candidate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +30,11 @@ class CandidateRateViewController: UIViewController {
         radarChart.yAxis.axisMaxValue = 10
         radarChart.yAxis.drawLabelsEnabled = false
         
-        copyCandidate()
-        
-        slider1.value = Float(newCandidate.goodLooks)
-        slider2.value = Float(newCandidate.wealth)
-        slider3.value = Float(newCandidate.marriagePotential)
-        slider4.value = Float(newCandidate.swag)
-        slider5.value = Float(newCandidate.size)
+        slider1.value = Float(candidate.goodLooks)
+        slider2.value = Float(candidate.wealth)
+        slider3.value = Float(candidate.marriagePotential)
+        slider4.value = Float(candidate.swag)
+        slider5.value = Float(candidate.size)
         
         setData()
     }
@@ -47,19 +44,8 @@ class CandidateRateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func copyCandidate() {
-        newCandidate = Candidate(json: candidate.json)
-        newCandidate.name = candidate.name
-        newCandidate.id = candidate.id
-        newCandidate.goodLooks = candidate.goodLooks
-        newCandidate.wealth = candidate.wealth
-        newCandidate.marriagePotential = candidate.marriagePotential
-        newCandidate.swag = candidate.swag
-        newCandidate.size = candidate.size
-    }
-    
     func saveClicked() {
-        Candidates.saveUserRatings(newCandidate) { [weak self] (error) in
+        Candidates.saveUserRatings(candidate) { [weak self] (error) in
             if let strongSelf = self {
                 if error == nil {
                     strongSelf.navigationController?.popViewControllerAnimated(true)
@@ -71,40 +57,40 @@ class CandidateRateViewController: UIViewController {
     }
     
     @IBAction func goodLooksValueChanged(sender: UISlider) {
-        newCandidate.goodLooks = Int(sender.value + 0.5)
+        candidate.goodLooks = Int(sender.value + 0.5)
         setData()
     }
 
     @IBAction func wealthValueChanged(sender: UISlider) {
-        newCandidate.wealth = Int(sender.value + 0.5)
+        candidate.wealth = Int(sender.value + 0.5)
         setData()
     }
     
     @IBAction func marriageValueChanged(sender: UISlider) {
-        newCandidate.marriagePotential = Int(sender.value + 0.5)
+        candidate.marriagePotential = Int(sender.value + 0.5)
         setData()
     }
     
     @IBAction func swagValueChanged(sender: UISlider) {
-        newCandidate.swag = Int(sender.value + 0.5)
+        candidate.swag = Int(sender.value + 0.5)
         setData()
     }
     
     @IBAction func sizeValueChanged(sender: UISlider) {
-        newCandidate.size = Int(sender.value + 0.5)
+        candidate.size = Int(sender.value + 0.5)
         setData()
 
     }
     
     private func setData() {
         var dataEntries = [ChartDataEntry]()
-        dataEntries.append(ChartDataEntry(value: Double(newCandidate.goodLooks), xIndex: 0))
-        dataEntries.append(ChartDataEntry(value: Double(newCandidate.wealth), xIndex: 1))
-        dataEntries.append(ChartDataEntry(value: Double(newCandidate.marriagePotential), xIndex: 2))
-        dataEntries.append(ChartDataEntry(value: Double(newCandidate.swag), xIndex: 3))
-        dataEntries.append(ChartDataEntry(value: Double(newCandidate.size), xIndex: 4))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.goodLooks), xIndex: 0))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.wealth), xIndex: 1))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.marriagePotential), xIndex: 2))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.swag), xIndex: 3))
+        dataEntries.append(ChartDataEntry(value: Double(candidate.size), xIndex: 4))
         
-        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: newCandidate.name)
+        let radarDataSet = RadarChartDataSet(yVals: dataEntries, label: candidate.name)
         radarDataSet.fillColor = UIColor.blueColor()
         radarDataSet.setColor(UIColor.blueColor())
         radarDataSet.drawFilledEnabled = true
